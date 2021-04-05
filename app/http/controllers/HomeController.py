@@ -10,7 +10,7 @@ class HomeController(Controller):
     """Controller For Welcoming The User."""
 
     def home(self, view: View, request: Request):
-        # changes2222222222
+        # change
 
         return view.render("pages/home", {
             "cache_buster": datetime.datetime.now().strftime("%s"),

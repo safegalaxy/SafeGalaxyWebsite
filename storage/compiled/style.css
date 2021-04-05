@@ -72,14 +72,18 @@ a:hover {
 .top-background {
   background-image: url("/storage/static/images/SafeGalaxy-background-V2.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; }
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  width: 100%;
+  height: auto; }
 
 .bottom-background {
   background-image: url("/storage/static/images/SafeGalaxy-background-V1.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover; }
+  /*background-attachment: fixed;*/
+  background-size: cover;
+  width: 100%;
+  height: auto; }
 
 /* Style the navbar */
 #navbar {
@@ -130,12 +134,14 @@ a:hover {
   padding-top: 70px; }
 
 .width-80 {
-  width: 80%; }
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto; }
 
 .social {
   background-color: #FF3BFF;
   background-color: rgba(255, 59, 255, 0.2);
-  height: 25px;
+  height: 30px;
   --bs-gutter-x: 0rem; }
 
 .social-bottom {
@@ -258,4 +264,66 @@ a:hover {
 
 .faq-answer {
   background-color: #0b001e;
-  color: #FF3BFF; }
+  color: #fff;
+  font-size: 22px;
+  text-align: left; }
+
+.contract-address {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 10px; }
+
+.how-to-buy-text {
+  color: #fff;
+  font-size: 32px;
+  margin: 0; }
+
+.how-to-buy-img {
+  margin: auto 10px auto 0; }
+
+.display-flex {
+  display: flex; }
+
+.mobile {
+  display: none; }
+
+.desktop {
+  display: flex; }
+
+.header-icon {
+  display: flex;
+  justify-content: flex-end; }
+
+@media (max-width: 575px) {
+  body {
+    font-size: 22px; }
+  .header-main {
+    font-size: 60px; }
+  .header-main-sm {
+    font-size: 28px; }
+  .header-icon {
+    display: flex;
+    justify-content: center; }
+  .bottom-gradient-main {
+    height: 0px; }
+  .top-gradient-main {
+    height: 0px; }
+  .sub-header-main-blocks {
+    font-size: 28px; }
+  .faq-answer {
+    font-size: 16px; }
+  .sub-header-main-blocks-sm {
+    font-size: 16px; }
+  .contract-address {
+    font-size: 14px; }
+  .how-to-buy-text {
+    font-size: 22px; }
+  .mobile {
+    display: block; }
+  .desktop {
+    display: none; } }
+
+/*override default bootstrap css*/
+.navbar-toggler:focus {
+  outline: none;
+  border: none; }
