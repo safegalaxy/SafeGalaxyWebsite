@@ -1,0 +1,261 @@
+@font-face {
+  font-family: "Mosk";
+  src: url("/storage/static/font/Mosk Extra-Light 200.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Mosk Bold";
+  src: url("/storage/static/font/Mosk Bold 700.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal; }
+
+html, body {
+  background-color: #0B001E;
+  scroll-behavior: smooth;
+  color: #FF3BFF;
+  font-family: "Mosk", "Mosk Bold";
+  font-weight: 700;
+  height: 100vh;
+  margin: 0; }
+
+a:hover {
+  cursor: pointer; }
+
+.font-text {
+  font-family: 'Mosk';
+  font-weight: 700; }
+
+.font-text-bold {
+  font-family: 'Mosk Bold';
+  font-weight: 800; }
+
+.font-text-faq {
+  font-family: 'Mosk';
+  font-weight: 300;
+  float: left; }
+
+.full-height {
+  height: 100vh; }
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center; }
+
+.position-ref {
+  position: relative; }
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px; }
+
+.content {
+  text-align: center; }
+
+.title {
+  font-size: 84px; }
+
+/*.links>a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}*/
+.m-b-md {
+  margin-bottom: 30px; }
+
+.top-background {
+  background-image: url("/storage/static/images/SafeGalaxy-background-V2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; }
+
+.bottom-background {
+  background-image: url("/storage/static/images/SafeGalaxy-background-V1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; }
+
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  padding-top: 4%; }
+
+/* Navbar links */
+#navbar a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none; }
+
+/* Page content */
+.content {
+  padding: 16px; }
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  width: 100%; }
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px; }
+
+.how-to-buy {
+  background-color: #FF3BFF;
+  border-color: #FF3BFF;
+  border-radius: 15px;
+  width: 200px;
+  height: 40px;
+  font-size: 16px; }
+
+.how-to-buy a {
+  padding: 8px !important; }
+
+.padding-15 {
+  padding: 15px; }
+
+.padding-25 {
+  padding: 25px; }
+
+.padding-top-70 {
+  padding-top: 70px; }
+
+.width-80 {
+  width: 80%; }
+
+.social {
+  background-color: #FF3BFF;
+  background-color: rgba(255, 59, 255, 0.2);
+  height: 25px;
+  --bs-gutter-x: 0rem; }
+
+.social-bottom {
+  margin: 10px; }
+
+.center-items {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.header-main {
+  font-size: 80px;
+  color: #fff; }
+
+.header-main-sm {
+  font-size: 32px;
+  color: #fff; }
+
+.sub-header-main {
+  font-size: 40px;
+  color: #fff;
+  margin-bottom: 10px; }
+
+.sub-header-main-sm {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 100;
+  margin-top: 10px; }
+
+.social-navbar-sm {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 100;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-bottom: 0px; }
+
+.social-navbar-main {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 0px; }
+
+.social-navbar {
+  float: right;
+  margin: 5px 10px 5px 10px; }
+
+.social-left {
+  margin-left: 15%;
+  max-width: 50%;
+  width: 50%; }
+
+.social-right {
+  max-width: 25%;
+  width: 25%; }
+
+.sub-header-main-blocks {
+  font-size: 32px;
+  color: #fff;
+  margin-bottom: 10px; }
+
+.sub-header-main-blocks-sm {
+  font-size: 22px;
+  color: #fff;
+  font-weight: 100;
+  margin-top: 10px; }
+
+.contact-address {
+  font-size: 28px;
+  color: #fff;
+  font-weight: 500;
+  margin-top: 10px; }
+
+.bottom-gradient-main {
+  height: 200px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,0b001e+100&0+0,0.4+25,0.6+45,0.75+60,0.85+75,1+90 */
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(3, 0, 8, 0.4) 25%, rgba(5, 0, 14, 0.6) 45%, rgba(7, 0, 18, 0.75) 60%, rgba(9, 0, 23, 0.85) 75%, #0a001b 90%, #0b001e 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(3, 0, 8, 0.4) 25%, rgba(5, 0, 14, 0.6) 45%, rgba(7, 0, 18, 0.75) 60%, rgba(9, 0, 23, 0.85) 75%, #0a001b 90%, #0b001e 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(3, 0, 8, 0.4) 25%, rgba(5, 0, 14, 0.6) 45%, rgba(7, 0, 18, 0.75) 60%, rgba(9, 0, 23, 0.85) 75%, #0a001b 90%, #0b001e 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#0b001e',GradientType=0 );
+  /* IE6-9 */ }
+
+.top-gradient-main {
+  height: 200px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0b001e+0,000000+100&1+10,0.85+25,0.75+40,0.6+55,0.4+75,0+100 */
+  background: -moz-linear-gradient(top, #0b001e 0%, #0a001b 10%, rgba(8, 0, 23, 0.85) 25%, rgba(6, 0, 18, 0.75) 40%, rgba(5, 0, 14, 0.6) 55%, rgba(3, 0, 8, 0.4) 75%, rgba(0, 0, 0, 0) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #0b001e 0%, #0a001b 10%, rgba(8, 0, 23, 0.85) 25%, rgba(6, 0, 18, 0.75) 40%, rgba(5, 0, 14, 0.6) 55%, rgba(3, 0, 8, 0.4) 75%, rgba(0, 0, 0, 0) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #0b001e 0%, #0a001b 10%, rgba(8, 0, 23, 0.85) 25%, rgba(6, 0, 18, 0.75) 40%, rgba(5, 0, 14, 0.6) 55%, rgba(3, 0, 8, 0.4) 75%, rgba(0, 0, 0, 0) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b001e', endColorstr='#00000000',GradientType=0 );
+  /* IE6-9 */ }
+
+.main-page-buttons {
+  height: 50px;
+  width: 250px;
+  font-size: 20px; }
+
+.main-page-buttons a {
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none; }
+
+.faq-row {
+  width: 75%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+.faq-expand-btn {
+  float: right;
+  background-color: #0b001e;
+  border: none;
+  box-shadow: none; }
+
+.faq-answer {
+  background-color: #0b001e;
+  color: #FF3BFF; }

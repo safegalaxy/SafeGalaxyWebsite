@@ -1,0 +1,8 @@
+2021-04-03 20:39:24 - ERROR - MissingContainerBindingNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/WelcomeController.py on line 23
+2021-04-05 05:21:37 - ERROR - TemplateNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/HomeController.py on line 23
+2021-04-05 06:22:23 - ERROR - TemplateNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/HomeController.py on line 23
+2021-04-05 06:22:33 - ERROR - TemplateNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/HomeController.py on line 30
+2021-04-05 06:22:37 - ERROR - TemplateNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/HomeController.py on line 37
+2021-04-05 06:22:47 - ERROR - TemplateNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/HomeController.py on line 37
+2021-04-05 06:32:07 - ERROR - TemplateNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/HomeController.py on line 37
+2021-04-05 06:32:18 - ERROR - TemplateNotFound in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/HomeController.py on line 30
