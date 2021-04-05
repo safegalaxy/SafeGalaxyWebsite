@@ -3,5 +3,8 @@
 from masonite.routes import Get, Post
 
 ROUTES = [
-    Get('/', 'HomeController@show'),
+    Get('/', 'HomeController@home'),
+    Get('/team', 'HomeController@team'),
+    Get('/whitepaper', 'HomeController@whitepaper'),
+    Get('/how-to-buy', 'HomeController@how_to_buy'),
 ]

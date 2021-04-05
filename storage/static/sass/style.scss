@@ -18,6 +18,7 @@ $background-color: #0B001E;
 
 html, body {
     background-color: $background-color;
+    scroll-behavior: smooth;
     color: $text-color;
     font-family: $font-stack;
     font-weight: 700;
@@ -37,6 +38,12 @@ a:hover {
 .font-text-bold {
     font-family: 'Mosk Bold';
     font-weight: 800;
+}
+
+.font-text-faq {
+    font-family: 'Mosk';
+    font-weight: 300;
+    float: left;
 }
 
 .full-height {
@@ -158,9 +165,10 @@ a:hover {
 }
 
 .social {
-    opacity: 0.2;
     background-color: #FF3BFF;
+    background-color: rgba(255, 59, 255, 0.2);
     height: 25px;
+    --bs-gutter-x: 0rem;
 }
 
 .social-bottom {
@@ -184,7 +192,7 @@ a:hover {
 }
 
 .sub-header-main {
-    font-size: 48px;
+    font-size: 40px;
     color: #fff;
     margin-bottom: 10px;
 }
@@ -196,6 +204,36 @@ a:hover {
     margin-top: 10px;
 }
 
+.social-navbar-sm {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 100;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-bottom: 0px;
+}
+
+.social-navbar-main {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 0px;
+}
+
+.social-navbar {
+    float: right;
+    margin: 5px 10px 5px 10px;
+}
+
+.social-left {
+    margin-left: 15%;
+    max-width: 50%;
+    width: 50%;
+}
+
+.social-right {
+    max-width: 25%;
+    width: 25%;
+}
 
 .sub-header-main-blocks {
     font-size: 32px;
@@ -248,4 +286,23 @@ a:hover {
     text-align: center;
     padding: 14px;
     text-decoration: none;
+}
+
+.faq-row {
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.faq-expand-btn {
+    float: right;
+    background-color: #0b001e;
+    border: none;
+    box-shadow: none;
+}
+
+.faq-answer {
+    background-color: #0b001e;
+    color: #FF3BFF;
 }

@@ -6,20 +6,16 @@
 
 
     <div class="position-ref  top-background">
-        <div class="social"></div>
-        <div id="navbar" class="">
-            <div class="row width-80">
-            <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><a href="#home">HOME</a></div></div></div>
-            <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><a href="#news">MEET OUR TEAM</a></div></div></div>
-            <!-- <div class="col-sm"><img src="/storage/static/images/SafeGalaxy-logo-looped.gif" width="100px" height="85px" class="center-items"></div> -->
-            <div class="col-sm"><img src="/storage/static/images/SafeGalaxy-Emblem-white.png" width="100px" height="85px" class="center-items"></div>
-            <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><a href="#contact">ROAD MAP</a></div></div></div>
-            <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><button class="how-to-buy center-items font-text-bold"><a href="#contact">HOW TO BUY</a></button></div></div></div>
-            </div>
-        </div>
+        {% include "/components/navbar.html" %}
 
         <div class="content">
             <div class="col-lg">
+                <div class="row" style="width: 75%; display: block; margin-left: auto; margin-right: auto;">
+                    <div class="alert alert-info alert-dismissible fade show" role="alert" style>
+                      Mobile Responsiveness still in progress.
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
                 <div class="row padding-top-70">
                     <div class="col-8 col-sm">
                         <h1 class="font-text-bold header-main">Intergalactic Static<br>Liquidity Protocol</h1>
@@ -37,10 +33,10 @@
                     <div class="col-4 col-sm"></div>
                     <div class="col-4 col-sm"></div>
                     <div class="col-4 col-sm">
-                        <button class="how-to-buy center-items font-text-bold main-page-buttons"><a href="#contact">How to buy</a></button>
+                        <button class="how-to-buy center-items font-text-bold main-page-buttons"><a href="/how-to-buy">How to buy</a></button>
                     </div>
                     <div class="col-4 col-sm">
-                        <button class="how-to-buy center-items font-text-bold main-page-buttons" style="background-color: Transparent; border-color: #707070;"><a href="#contact">Whitepaper</a></button>
+                        <button class="how-to-buy center-items font-text-bold main-page-buttons" style="background-color: Transparent; border-color: #707070;"><a href="/whitepaper">Whitepaper</a></button>
                     </div>
                     <div class="col-4 col-sm"></div>
                     <div class="col-4 col-sm"></div>
@@ -65,19 +61,19 @@
                     </div>
                 </div>
                 <div class="col-lg"><div class="row"><div class="col-8 col-sm"><img src="/storage/static/images/Money-bag-emoji.png" width="75px" height="75px" class="center-items">
-                            <h1 class="font-text-bold sub-header-main">10,000,000.00 USD</h1>
+                            <h1 class="font-text-bold sub-header-main">$1,389,882.09 USD</h1>
                             <h2 class="font-text sub-header-main-sm">Liquidity Generated</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg"><div class="row"><div class="col-8 col-sm"><img src="/storage/static/images/Cap-emoji.png" width="75px" height="75px" class="center-items">
-                            <h1 class="font-text-bold sub-header-main">500 M</h1>
+                            <h1 class="font-text-bold sub-header-main">$20,500,000</h1>
                             <h2 class="font-text sub-header-main-sm">Market Cap</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg"><div class="row"><div class="col-8 col-sm"><img src="/storage/static/images/Fire-emoji.png" width="75px" height="75px" class="center-items">
-                            <h1 class="font-text-bold sub-header-main">500.000 T</h1>
+                            <h1 class="font-text-bold sub-header-main">353 T</h1>
                             <h2 class="font-text sub-header-main-sm">Tokens Burned</h2>
                         </div>
                     </div>
@@ -116,7 +112,7 @@
             </div>
         </div>
     </div>
-    <div class="position-ref bottom-background">
+    <div class="position-ref bottom-background" id="road-map">
         <div class="top-gradient-main"></div>
 
         <div class="content">
@@ -145,7 +141,7 @@
     </div>
     <div class="position-ref">
         <div class="content container">
-            <div class="row">
+            <div class="row faq-row">
 
                 <div class="col-lg">
                     <div class="row padding-top-70">
@@ -153,14 +149,101 @@
                             <h1 class="font-text-bold header-main">FAQ</h1>
                         </div>
                     </div>
-                    <div class="row padding-top-70"><hr></div>
-                    <h1 class="font-text-bold sub-header-main-blocks">Transparency</h1>
-                    <div class="row padding-top-70"><hr></div>
-                    <h1 class="font-text-bold sub-header-main-blocks">Transparency</h1>
-                    <div class="row padding-top-70"><hr></div>
-                    <h1 class="font-text-bold sub-header-main-blocks">Transparency</h1>
-                    <div class="row padding-top-70"><hr></div>
-                    <h1 class="font-text-bold sub-header-main-blocks">Transparency</h1>
+                    <div class="row padding-15"><hr></div>
+                    <div class="row">
+                        <div class="col-7">
+                            <h1 class="font-text-faq sub-header-main-blocks">What is SafeGalaxy?</h1>
+                        </div>
+                        <div class="col-5">
+                            <button type="button" class="faq-expand-btn" data-bs-toggle="collapse" data-bs-target="#collapse-faq-1" aria-expanded="false" aria-controls="collapse-faq-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#fff" class="bi bi-plus" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                        </svg>
+                            </button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="collapse padding-15" id="collapse-faq-1">
+                            <div class="card card-body faq-answer">
+                                SafeGalaxy is a deflationary, static yield farming, automatic liquidity generating token on the Binance Smart Chain.
+
+                                This means that the supply of SafeGalaxy will shrink over time, you can farm more tokens simply by holding SafeGalaxy in your wallet, and there will always be a liquid market for SafeGalaxy.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-15"><hr></div>
+                    <div class="row">
+                        <div class="col-7">
+                            <h1 class="font-text-faq sub-header-main-blocks">How does SafeGalaxy work?</h1>
+                        </div>
+                        <div class="col-5">
+                            <button type="button" class="faq-expand-btn" data-bs-toggle="collapse" data-bs-target="#collapse-faq-2" aria-expanded="false" aria-controls="collapse-faq-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#fff" class="bi bi-plus" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                        </svg>
+                            </button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="collapse padding-15" id="collapse-faq-2">
+                            <div class="card card-body faq-answer">
+                                SafeGalaxy works by taking a 10% fee on every transaction. That fee is broken up into 2 parts.
+
+                                Reflection - 50% of the fee (5% of the transaction) is distributed to every wallet that holds SafeGalaxy on a percentage basis. The more SafeGalaxy you hold the more you will receive!
+
+                                LP Generation - 25% of the fee (2.5% of the transaction) collected in SafeGalaxy is sold into BNB. That BNB is married up with the remaining 25% of SafeGalaxy and deposited back into the PancakeSwap liquidity pool.
+
+                                These two functions work together to reward holders and punish whales.
+
+                                Wait!
+
+                                Won’t the sell order from the LP generation create downward pressure on the price?
+
+                                Mathematically yes it does, realistically however that pressure is minimal. It takes a large amount of volume to push the price in one direction or another. If you consider the fact that the sell order being placed is only 2.5% of the overall transaction, quickly will you understand that the small sell order is negligible relative to the overall volume. Furthermore the LP generation function acts as a fantastic risk mitigation tool as it helps to keep the market liquid, the liquidity pool balanced, and therefore the price stable.
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-15"><hr></div>
+                    <div class="row">
+                        <div class="col-7">
+                            <h1 class="font-text-faq sub-header-main-blocks">How can I buy SafeGalaxy?</h1>
+                        </div>
+                        <div class="col-5">
+                            <button type="button" class="faq-expand-btn" data-bs-toggle="collapse" data-bs-target="#collapse-faq-3" aria-expanded="false" aria-controls="collapse-faq-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#fff" class="bi bi-plus" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                        </svg>
+                            </button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="collapse padding-15" id="collapse-faq-3">
+                            <div class="card card-body faq-answer">
+                                <button class="how-to-buy center-items font-text-bold main-page-buttons"><a href="/how-to-buy">How to buy</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-15"><hr></div>
+                    <div class="row">
+                        <div class="col-7">
+                            <h1 class="font-text-faq sub-header-main-blocks">Why SafeGalaxy over other safetokens?</h1>
+                        </div>
+                        <div class="col-5">
+                            <button type="button" class="faq-expand-btn" data-bs-toggle="collapse" data-bs-target="#collapse-faq-4" aria-expanded="false" aria-controls="collapse-faq-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="#fff" class="bi bi-plus" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                        </svg>
+                            </button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="collapse padding-15" id="collapse-faq-4">
+                            <div class="card card-body faq-answer">
+                                SafeGalaxy has an awesome and committed dev team that is focused on transparency and community. Feel free to connect with any of them, they are happy to chat about the project while navigating the cosmos. SafeGalaxy is the first step for these devs in their intergalactic defi journey!
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -205,13 +288,40 @@
             <br>
                 <div class="row">
                     <div class="col-lg">
-                        <img src="/storage/static/images/Discord.png" width="50px" height="50px" class="social-bottom">
-                        <img src="/storage/static/images/Telegram.png" width="50px" height="50px" class="social-bottom">
-                        <img src="/storage/static/images/Twitter.png" width="50px" height="50px" class="social-bottom">
-                        <img src="/storage/static/images/FaceBook.png" width="50px" height="50px" class="social-bottom">
-                        <img src="/storage/static/images/Instagram.png" width="50px" height="50px" class="social-bottom">
-                        <img src="/storage/static/images/Reddit.png" width="50px" height="50px" class="social-bottom">
-                        <img src="/storage/static/images/Tiktok.png" width="50px" height="50px" class="social-bottom">
+                        <img src="/storage/static/images/Discord.png" width="50px" height="50px" class="social-bottom" usemap="#discord_map">
+                        <map name="discord_map">
+                            <area shape="circle" coords="25,25,25" alt="SafeGalaxy Discord" target="_blank" href="https://discord.com/invite/dq7m6R7UAz">
+                        </map>
+
+                        <img src="/storage/static/images/Telegram.png" width="50px" height="50px" class="social-bottom" usemap="#telegram_map">
+                        <map name="telegram_map">
+                            <area shape="circle" coords="25,25,25" alt="SafeGalaxy Telegram" target="_blank" href="https://t.me/safegalaxychat">
+                        </map>
+
+                        <img src="/storage/static/images/Twitter.png" width="50px" height="50px" class="social-bottom" usemap="#twitter_map">
+                        <map name="twitter_map">
+                            <area shape="circle" coords="25,25,25" alt="SafeGalaxy Twitter" target="_blank" href="https://twitter.com/SafeGalaxyToken">
+                        </map>
+
+                        <img src="/storage/static/images/FaceBook.png" width="50px" height="50px" class="social-bottom" usemap="#facebook_map">
+                        <map name="facebook_map">
+                            <area shape="circle" coords="25,25,25" alt="SafeGalaxy Facebook" target="_blank" href="https://facebook.com/SafeGalaxyToken">
+                        </map>
+
+                        <img src="/storage/static/images/Instagram.png" width="50px" height="50px" class="social-bottom" usemap="#instagram_map">
+                        <map name="instagram_map">
+                            <area shape="circle" coords="25,25,25" alt="SafeGalaxy Instagram" target="_blank" href="https://www.instagram.com/safegalaxytoken/?igshid=jr936k6emyet">
+                        </map>
+
+                        <img src="/storage/static/images/Reddit.png" width="50px" height="50px" class="social-bottom" usemap="#reddit_map">
+                        <map name="reddit_map">
+                            <area shape="circle" coords="25,25,25" alt="SafeGalaxy Reddit" target="_blank" href="https://www.reddit.com/r/SafeGalaxy">
+                        </map>
+
+                        <img src="/storage/static/images/Tiktok.png" width="50px" height="50px" class="social-bottom" usemap="#tiktok_map">
+                        <map name="tiktok_map">
+                            <area shape="circle" coords="25,25,25" alt="SafeGalaxy Tiktok" target="_blank" href="https://vm.tiktok.com/ZSJ6ghm4k/">
+                        </map>
                     </div>
                 </div>
         </div>

@@ -25,7 +25,7 @@ function copy_clipboard(element) {
     $("body").append($temp);
     $temp.val($(element).text()).select();
     document.execCommand("copy");
-    $(".copied_message").css({"display": "inline-flex"});
+    $(".copied_message").css({"display": "flex"});
     $(".copied_message").delay(2000).fadeOut();
     $temp.remove();
 }
