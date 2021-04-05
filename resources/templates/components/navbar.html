@@ -64,7 +64,13 @@
             <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><a href="/">HOME</a></div></div></div>
             <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><a href="/team">MEET OUR TEAM</a></div></div></div>
             <div class="col-sm"><img src="/storage/static/images/SafeGalaxy-Emblem-white.png" width="100px" height="85px" class="center-items"></div>
-            <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><a href="#road-map">ROAD MAP</a></div></div></div>
+            <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm">
+                {% if path == "/" %}
+                    <a href="#road-map">ROAD MAP</a>
+                {% else %}
+                    <a target="_blank" href="https://drive.google.com/file/d/18GX3LdXNY5IyYbRtucb0xooE3St7xXdS/view">ROAD MAP</a>
+                {% endif %}
+            </div></div></div>
             <div class="col-lg"><div class="row padding-15"><div class="col-8 col-sm"><button class="how-to-buy center-items font-text-bold"><a target="_blank" href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0x6b51231c43B1604815313801dB5E9E614914d6e4">WHERE TO BUY</a></button></div></div></div>
         </div>
     </div>
@@ -83,7 +89,12 @@
                     <a href="/team">MEET OUR TEAM</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#road-map">ROAD MAP</a>
+                    {% if path == "/" %}
+                        <a href="#road-map">ROAD MAP</a>
+                    {% else %}
+                        <a target="_blank" href="https://drive.google.com/file/d/18GX3LdXNY5IyYbRtucb0xooE3St7xXdS/view">ROAD MAP</a>
+                    {% endif %}
+
                 </li>
                 <li class="nav-item">
                     <button class="how-to-buy center-items font-text-bold"><a target="_blank" href="https://exchange.pancakeswap.finance/#/swap?inputCurrency=0x6b51231c43B1604815313801dB5E9E614914d6e4">WHERE TO BUY</a></button>
