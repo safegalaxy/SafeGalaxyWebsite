@@ -30,6 +30,10 @@ a:hover {
     cursor:pointer;
 }
 
+a:focus {
+    outline: none !important;
+}
+
 .font-text {
     font-family: 'Mosk';
     font-weight: 700;
@@ -401,6 +405,19 @@ a:hover {
     left: 0;
     right: 0;
     margin: auto;
+}
+
+.team-img-area {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    outline: 1px solid transparent;
+
+    /*You just need this if you are only concerned with android and not desktop browsers.*/
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 @media (max-width: 575px) {
