@@ -1,9 +1,0 @@
-2021-04-07 05:14:22 - ERROR - SyntaxError in /home/vagrant/Code/SafeGalaxyWebsite/bootstrap/start.py on line 38
-2021-04-07 05:56:07 - ERROR - AttributeError in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/StatsController.py on line 18
-2021-04-07 05:59:11 - ERROR - AttributeError in /home/vagrant/Code/SafeGalaxyWebsite/app/http/controllers/StatsController.py on line 18
-2021-04-07 06:19:08 - ERROR - ContainerError in /home/vagrant/Code/SafeGalaxyWebsite/bootstrap/start.py on line 38
-2021-04-07 06:20:29 - ERROR - ContainerError in /home/vagrant/Code/SafeGalaxyWebsite/bootstrap/start.py on line 38
-2021-04-07 06:22:19 - ERROR - SyntaxError in /home/vagrant/Code/SafeGalaxyWebsite/bootstrap/start.py on line 38
-2021-04-07 06:22:49 - ERROR - SyntaxError in /home/vagrant/Code/SafeGalaxyWebsite/bootstrap/start.py on line 38
-2021-04-07 06:22:53 - ERROR - SyntaxError in /home/vagrant/Code/SafeGalaxyWebsite/bootstrap/start.py on line 38
-2021-04-07 06:23:19 - ERROR - SyntaxError in /home/vagrant/Code/SafeGalaxyWebsite/bootstrap/start.py on line 38
