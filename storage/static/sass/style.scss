@@ -92,6 +92,7 @@ a:hover {
     background-image: url('/storage/static/images/SafeGalaxy-background-V2.jpg');
     background-repeat: no-repeat;
     /*background-attachment: fixed;*/
+    /*background-size: 100% 100%;*/
     background-size: cover;
     width: 100%;
     height: auto;
@@ -101,9 +102,20 @@ a:hover {
     background-image: url('/storage/static/images/SafeGalaxy-background-V1.jpg');
     background-repeat: no-repeat;
     /*background-attachment: fixed;*/
+    /*background-size: 100% 100%;*/
     background-size: cover;
     width: 100%;
     height: auto;
+}
+
+.background-sub-pages {
+    background-image: url('/storage/static/images/SafeGalaxy-background-V1.jpg');
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    /*background-size: 100% 100%;*/
+/*    background-size: cover;
+    width: 100%;
+    height: auto;*/
 }
 
 /* Style the navbar */
@@ -120,6 +132,7 @@ a:hover {
     color: #f2f2f2;
     text-align: center;
     padding: 14px;
+    font-size: 14px;
     text-decoration: none;
 }
 
@@ -149,7 +162,7 @@ a:hover {
 }
 
 .how-to-buy a{
-    padding: 8px !important;
+    padding: 5px !important;
 }
 
 .padding-15 {
@@ -261,6 +274,11 @@ a:hover {
     margin-top: 10px;
 }
 
+.clipboard-copy-link {
+    color: inherit;
+    text-decoration: none;
+}
+
 .bottom-gradient-main {
     height: 200px;
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,0b001e+100&0+0,0.4+25,0.6+45,0.75+60,0.85+75,1+90 */
@@ -315,6 +333,10 @@ a:hover {
     text-align: left;
 }
 
+.hide-icon-faq {
+    display: none;
+}
+
 .contract-address {
     font-size: 32px;
     color: #fff;
@@ -346,6 +368,39 @@ a:hover {
 .header-icon {
     display:flex;
     justify-content: flex-end;
+}
+
+/* Team page */
+
+.profile-img {
+    background-image: var(--url);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    width: 250px;
+    height: 375px;
+    margin: 20px auto 20px auto;
+}
+
+.profile-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: #000;
+    font-weight: 500;
+    font-family: 'Mosk';
+    font-size: 18px;
+}
+
+.profile-hr {
+    position: absolute;
+    bottom: 11%;
+    border: 1px solid #FF3BFF;
+    width: 200px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 @media (max-width: 575px) {
