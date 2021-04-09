@@ -322,7 +322,7 @@ a:focus {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
-  width: 250px;
+  width: 235px;
   height: 375px;
   margin: 20px auto 20px auto; }
 
@@ -340,7 +340,7 @@ a:focus {
   position: absolute;
   bottom: 11%;
   border: 1px solid #FF3BFF;
-  width: 200px;
+  width: 175px;
   left: 0;
   right: 0;
   margin: auto; }
@@ -355,6 +355,10 @@ a:focus {
   outline: 1px solid transparent;
   /*You just need this if you are only concerned with android and not desktop browsers.*/
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+
+@media (min-width: 1200px) {
+  .team-gutter-x {
+    --bs-gutter-x: -12rem; } }
 
 @media (max-width: 575px) {
   body {

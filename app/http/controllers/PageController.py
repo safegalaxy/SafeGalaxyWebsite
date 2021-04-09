@@ -60,3 +60,11 @@ class PageController(Controller):
             "cache_buster": datetime.datetime.now().strftime("%s"),
             "path": request.path
         })
+
+    def jobs(self, view: View, request: Request):
+        # changes
+
+        return view.render("pages/jobs", {
+            "cache_buster": datetime.datetime.now().strftime("%s"),
+            "path": request.path
+        })
