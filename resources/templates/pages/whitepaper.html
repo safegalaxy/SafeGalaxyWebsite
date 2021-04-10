@@ -11,50 +11,97 @@
             <div class="col-lg">
                 <div class="row padding-top-70">
                     <div class="col-sm-12">
-                        <h1 class="font-text-bold header-main" style="font-size: 54px;">COMING SOON</h1>
+                        <h1 class="font-text-bold header-main" style="font-size: 54px;">Whitepaper</h1>
                     </div>
                 </div>
             </div>
         </div>
         <br>
         <br>
-<!--         <div class="content container-sm">
+        <div class="content container-sm">
             <div class="row">
                     <div class="col-sm-4">
-                        <h2 style="text-align: center;">Overview</h2>
+                        <h2 class="whitepaper-header" style="text-align: center;">Overview</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="align-left whitepaper-text whitepaper-overview">
+                            SafeGalaxy works by taking a 10% fee on every transaction. That fee is broken up into 2 parts.
+
+                            Reflection - 50% of the fee (5% of the transaction) is distributed to every wallet that holds SafeGalaxy on a percentage basis. The more SafeGalaxy you hold the more you will receive!
+
+                            LP Generation - 25% of the fee (2.5% of the transaction) collected in SafeGalaxy is sold into BNB. That BNB is married up with the remaining 25% of SafeGalaxy and deposited back into the PancakeSwap liquidity pool.
+
+                            These two functions work together to reward holders and punish whales.
+                        </p>
+                        <p class="align-left whitepaper-text whitepaper-overview">
+
+                            Wait!
+
+                            Won’t the sell order from the LP generation create downward pressure on the price?
+
+                            Mathematically yes it does, realistically however that pressure is minimal. It takes a large amount of volume to push the price in one direction or another. If you consider the fact that the sell order being placed is only 2.5% of the overall transaction, quickly will you understand that the small sell order is negligible relative to the overall volume. Furthermore the LP generation function acts as a fantastic risk mitigation tool as it helps to keep the market liquid, the liquidity pool balanced, and therefore the price stable.
+                        </p>
+                    </div>
+                    <div class="col-sm-3"></div>
+            </div>
+            <br>
+            <div class="row">
+                    <div class="col-sm-4">
+                        <h2 class="whitepaper-header" style="text-align: center;">Tokenomics</h2>
                     </div>
                     <div class="col-sm-5">
-                        <p style="text-align: left;">
-                            SAFEGALAXY is a frictionless yield & liquidity generation smart contract protocol that works by applying 10% fee for each transaction and instantly splitting that fee by rewarding holders with 5% and auto locking 5% in Pancake LP. Holders don't need to do anything than just hold SAFEGALAXY tokens in their wallet to earn rewards. Contract allows to exclude certain addresses like PancakeSwap contract address from receiving rewards, as well allow to include certain address to receive reward if required.
-                        </p>
                     </div>
-                    <div class="col-sm-3"></div>>
+                    <div class="col-sm-3"></div>
             </div>
-        </div> -->
-<!--         <div class="content container-sm">
-            <div class="row">
-                {% for profile in bottom_profiles_data %}
-                <div class="col-lg-{{ (12 / bottom_profiles_data|length)|int }}">
-                    <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
-                        <p class="profile-text">
-                            <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
-                            <br>
-                            <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
-                            <br>
-                            <span style="font-size: 14px;">Connect through</span>
-                            <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
-                            <map name="linkedin_map-{{ profile.profile_name }}">
-                                <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
-                            </map>
-                            <hr class="profile-hr">
-                        </p>
+            <div class="row row-cols-2 whitepaper-tokenomics">
+                    <div class="col align-right whitepaper-header">
+                        Symbol
                     </div>
-                </div>
-                {% endfor %}
+                    <div class="col align-left whitepaper-text">
+                        SAFEGALAXY
+                    </div>
+                    <div class="col align-right whitepaper-header">
+                        Total Supply
+                    </div>
+                    <div class="col align-left whitepaper-text">
+                        1,000,000,000,000,000
+                    </div>
+                    <div class="col align-right whitepaper-header">
+                        Supernova Burn
+                    </div>
+                    <div class="col align-left whitepaper-text">
+                        250,000,000,000,000
+                    </div>
+                    <div class="col align-right whitepaper-header">
+                        Pancake SWAP LP
+                    </div>
+                    <div class="col align-left whitepaper-text">
+                        250,000,000,000,000
+                    </div>
+                    <div class="col align-right whitepaper-header">
+                        Presale Allocation
+                    </div>
+                    <div class="col align-left whitepaper-text">
+                        400,000,000,000,000
+                    </div>
+                    <div class="col align-right whitepaper-header">
+                        Marketing
+                    </div>
+                    <div class="col align-left whitepaper-text">
+                        100,000,000,000,000
+                    </div>
             </div>
-        </div> -->
-
-        <!-- <div class="bottom-gradient-main"></div> -->
+        </div>
+        <br>
+        <br>
+        <div class="content">
+            <div class="container-fluid">
+                <picture>
+                    <source media="(max-width: 960px)" srcset="/storage/static/images/SafeGalaxy-roadmap-mobile.png">
+                    <img src="/storage/static/images/SafeGalaxy-roadmap-desktop.png" class="center-items" width="90%">
+                </picture>
+            </div>
+        </div>
     </div>
     {% include "/components/footer.html" %}
 {% endblock %}

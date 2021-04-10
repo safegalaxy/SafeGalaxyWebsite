@@ -18,7 +18,7 @@ class PageController(Controller):
         })
 
     def team(self, view: View, request: Request):
-        # team profiles could be pulled dynamically with a DB
+        # team profiles could be pulled dynamically with a DB.
 
         top_profiles_data = [
             {"img_url": "/storage/static/images/SafeGalaxy-Spencer.png", "profile_name": "Spencer", "profile_position": "CEO & Developer", "linkedin_url": "https://www.linkedin.com/in/spencer-macey/"},
