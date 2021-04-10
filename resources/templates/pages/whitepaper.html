@@ -5,15 +5,56 @@
 {% block content %}
 
 
-    <div class="position-ref  top-background" style="height: 100vh;">
+<div class="position-ref  background-sub-pages">
         {% include "/components/navbar.html" %}
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="row" style="font-weight: 800; color: #fff; text-align: center; display: block; margin-left: auto; margin-right: auto;">
-            <h1>COMING SOON!</h1>
+        <div class="content container-sm">
+            <div class="col-lg">
+                <div class="row padding-top-70">
+                    <div class="col-sm-12">
+                        <h1 class="font-text-bold header-main" style="font-size: 54px;">COMING SOON</h1>
+                    </div>
+                </div>
+            </div>
         </div>
+        <br>
+        <br>
+<!--         <div class="content container-sm">
+            <div class="row">
+                    <div class="col-sm-4">
+                        <h2 style="text-align: center;">Overview</h2>
+                    </div>
+                    <div class="col-sm-5">
+                        <p style="text-align: left;">
+                            SAFEGALAXY is a frictionless yield & liquidity generation smart contract protocol that works by applying 10% fee for each transaction and instantly splitting that fee by rewarding holders with 5% and auto locking 5% in Pancake LP. Holders don't need to do anything than just hold SAFEGALAXY tokens in their wallet to earn rewards. Contract allows to exclude certain addresses like PancakeSwap contract address from receiving rewards, as well allow to include certain address to receive reward if required.
+                        </p>
+                    </div>
+                    <div class="col-sm-3"></div>>
+            </div>
+        </div> -->
+<!--         <div class="content container-sm">
+            <div class="row">
+                {% for profile in bottom_profiles_data %}
+                <div class="col-lg-{{ (12 / bottom_profiles_data|length)|int }}">
+                    <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
+                        <p class="profile-text">
+                            <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
+                            <br>
+                            <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
+                            <br>
+                            <span style="font-size: 14px;">Connect through</span>
+                            <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
+                            <map name="linkedin_map-{{ profile.profile_name }}">
+                                <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
+                            </map>
+                            <hr class="profile-hr">
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div> -->
+
+        <!-- <div class="bottom-gradient-main"></div> -->
     </div>
     {% include "/components/footer.html" %}
 {% endblock %}
