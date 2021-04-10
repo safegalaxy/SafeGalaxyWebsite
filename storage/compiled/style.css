@@ -25,6 +25,12 @@ a:hover {
 a:focus {
   outline: none !important; }
 
+.align-left {
+  text-align: left; }
+
+.align-right {
+  text-align: right; }
+
 .font-text {
   font-family: 'Mosk';
   font-weight: 700; }
@@ -356,6 +362,23 @@ a:focus {
   /*You just need this if you are only concerned with android and not desktop browsers.*/
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
+/* Whitepaper page */
+.whitepaper-header {
+  font-family: "Mosk Bold";
+  font-weight: 800;
+  color: #fff; }
+
+.whitepaper-text {
+  font-family: "Mosk";
+  font-weight: 500;
+  color: #fff; }
+
+.whitepaper-overview {
+  font-size: 18px; }
+
+.whitepaper-tokenomics {
+  font-size: 24px; }
+
 @media (min-width: 1200px) {
   .team-gutter-x {
     --bs-gutter-x: -12rem; } }
@@ -365,6 +388,11 @@ a:focus {
     font-size: 22px; }
   .header-main {
     font-size: 60px; }
+  .whitepaper-overview {
+    margin: 20px; }
+  .whitepaper-tokenomics {
+    font-size: 16px;
+    padding-right: 20px; }
   .header-main-sm {
     font-size: 28px; }
   .header-icon {
