@@ -24,13 +24,22 @@ class PageController(Controller):
             response = requests.get(stats_cdn_url, timeout=1)
 
             stats = response.json()
+            table_count = self.dynamodb_scan_completed()["ScannedCount"]
+
+            last_id = 1
+            if int(table_count) != 0:
+                last_id = int(table_count)
+
+            stats["last_id"] = last_id
+
+            self.dynamodb_delete(int(table_count))
 
             self.dynamodb_put(stats)
             cached = False
         except requests.exceptions.Timeout:
-            table_count = self.dynamodb_scan_completed()
+            table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
-            stats = self.dynamodb_get(table_count["ScannedCount"])["Item"]
+            stats = self.dynamodb_get(table_count)["Item"]
             cached = True
 
         # stats = {
@@ -170,7 +179,7 @@ class PageController(Controller):
         )
         return response
 
-    def dynamodb_delete(self, last_id, data):
+    def dynamodb_delete(self, last_id):
         dynamodb = boto3.resource(
             "dynamodb",
             aws_access_key_id=env("AWS_CLIENT"),
