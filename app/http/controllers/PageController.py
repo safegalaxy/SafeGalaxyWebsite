@@ -156,7 +156,8 @@ class PageController(Controller):
             "dynamodb",
             aws_access_key_id=env("AWS_CLIENT"),
             aws_secret_access_key=env("AWS_SECRET"),
-            region_name ="us-east-1"
+            region_name="us-east-1",
+            endpoint_url="https://dynamodb.us-east-1.amazonaws.com"
         )
         table = dynamodb.Table("last_price")
         response = table.put_item(
@@ -169,7 +170,8 @@ class PageController(Controller):
             "dynamodb",
             aws_access_key_id=env("AWS_CLIENT"),
             aws_secret_access_key=env("AWS_SECRET"),
-            region_name ="us-east-1"
+            region_name="us-east-1",
+            endpoint_url="https://dynamodb.us-east-1.amazonaws.com"
         )
         table = dynamodb.Table("last_price")
         response = table.get_item(
@@ -184,7 +186,8 @@ class PageController(Controller):
             "dynamodb",
             aws_access_key_id=env("AWS_CLIENT"),
             aws_secret_access_key=env("AWS_SECRET"),
-            region_name ="us-east-1"
+            region_name="us-east-1",
+            endpoint_url="https://dynamodb.us-east-1.amazonaws.com"
         )
         table = dynamodb.Table("last_price")
         response = table.delete_item(
@@ -199,7 +202,8 @@ class PageController(Controller):
             "dynamodb",
             aws_access_key_id=env("AWS_CLIENT"),
             aws_secret_access_key=env("AWS_SECRET"),
-            region_name ="us-east-1"
+            region_name="us-east-1",
+            endpoint_url="https://dynamodb.us-east-1.amazonaws.com"
         )
         table = dynamodb.Table("last_price")
         response = table.scan(
