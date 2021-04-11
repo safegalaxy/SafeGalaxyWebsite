@@ -3,8 +3,11 @@
 from masonite.view import View
 from masonite.request import Request
 from masonite.controllers import Controller
+from masonite import env
 import datetime
+from decimal import *
 import requests
+import boto3
 
 
 class PageController(Controller):
@@ -15,32 +18,43 @@ class PageController(Controller):
 
         # you have to setup an ngrok link and have a cloudfront url point
         # your ngrok to be able to dev locally. This is pointed at DEV
-        # stats_cdn_url = "https://d13wpvp4xr14sc.cloudfront.net"
+        stats_cdn_url = "https://d13wpvp4xr14sc.cloudfront.net"
 
-        # response = requests.get(stats_cdn_url)
+        try:
+            response = requests.get(stats_cdn_url, timeout=1)
 
-        # stats = response.json()
+            stats = response.json()
 
-        stats = {
-            "holders": "24,338",
-            "liquidity_generated": "2,162,872.11",
-            "market_cap": "17,316,553.36",
-            "volume_24hr": "465,066.76",
-            "volume_24hr_change": 0.02,
-            "volume_24hr_direction": "down",
-            "tokens_burned": "364,432,902,901,376.02",
-            "current_price": "0.000000017395281",
-            "price_24hr_change": 0.19,
-            "price_24hr_direction": "down",
-            "timestamp_unix": 1618174481,
-            "timestamp_utc": "2021-04-11 20:54:41 UTC"
-        }
+            self.dynamodb_put(stats)
+            cached = False
+        except requests.exceptions.Timeout:
+            table_count = self.dynamodb_scan_completed()
+
+            stats = self.dynamodb_get(table_count["ScannedCount"])["Item"]
+            cached = True
+
+        # stats = {
+        #     "last_id": 1,
+        #     "holders": "24,338",
+        #     "liquidity_generated": "2,162,872.11",
+        #     "market_cap": "17,316,553.36",
+        #     "volume_24hr": "465,066.76",
+        #     "volume_24hr_change": "0.02",
+        #     "volume_24hr_direction": "down",
+        #     "tokens_burned": "364,432,902,901,376.02",
+        #     "current_price": "0.000000017395281",
+        #     "price_24hr_change": "0.19",
+        #     "price_24hr_direction": "down",
+        #     "timestamp_unix": 1618174481,
+        #     "timestamp_utc": "2021-04-11 20:54:41 UTC"
+        # }
 
         return view.render("pages/home", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
             "path": request.path,
             "year": datetime.date.today().year,
-            "stats": stats
+            "stats": stats,
+            "cached": cached
         })
 
     def team(self, view: View, request: Request):
@@ -127,3 +141,55 @@ class PageController(Controller):
             "path": request.path,
             "year": datetime.date.today().year
         })
+
+    def dynamodb_put(self, data):
+        dynamodb = boto3.resource(
+            "dynamodb",
+            aws_access_key_id=env("AWS_CLIENT"),
+            aws_secret_access_key=env("AWS_SECRET")
+        )
+        table = dynamodb.Table("last_price")
+        response = table.put_item(
+            Item=data
+        )
+        return response
+
+    def dynamodb_get(self, last_id):
+        dynamodb = boto3.resource(
+            "dynamodb",
+            aws_access_key_id=env("AWS_CLIENT"),
+            aws_secret_access_key=env("AWS_SECRET")
+        )
+        table = dynamodb.Table("last_price")
+        response = table.get_item(
+            Key={
+                "last_id": last_id,
+            },
+        )
+        return response
+
+    def dynamodb_delete(self, last_id, data):
+        dynamodb = boto3.resource(
+            "dynamodb",
+            aws_access_key_id=env("AWS_CLIENT"),
+            aws_secret_access_key=env("AWS_SECRET")
+        )
+        table = dynamodb.Table("last_price")
+        response = table.delete_item(
+            Key={
+                "last_id": last_id,
+            },
+        )
+        return response
+
+    def dynamodb_scan_completed(self):
+        dynamodb = boto3.resource(
+            "dynamodb",
+            aws_access_key_id=env("AWS_CLIENT"),
+            aws_secret_access_key=env("AWS_SECRET")
+        )
+        table = dynamodb.Table("last_price")
+        response = table.scan(
+            Select="COUNT",
+        )
+        return response
