@@ -40,7 +40,7 @@
                         <a target="_blank" href="https://dex.guru/token/0x6b51231c43b1604815313801db5e9e614914d6e4-bsc">Live Chart</a>
                     </button>
                 </div>
-                <span>{{cached}}</span>
+                <span style="display: none;">{{cached}}</span>
                 <div class="col-sm-3 my-3">
                     <h1 class="font-text-bold sub-header-main stats-font">${{ stats.current_price }} USD</h1>
                     <h2 class="font-text sub-header-main-sm">Current Price</h2>
@@ -60,19 +60,9 @@
             </div>
         </div>
     </div>
-    <div class="position-ref">
-        <div class="content">
-            <div class="row">
-                <div class="col-lg">
-                    Stats last updated {{ stats.timestamp_utc }}
-                </div>
-            </div>
-        </div>
-    </div>
     <br>
     <br>
     <div class="position-ref">
-
         <div class="content">
             <div class="row">
                 <div class="col-sm-3 my-3"><img src="/storage/static/images/Heart-emoji.png" width="75px" height="75px" class="center-items">
@@ -96,6 +86,15 @@
     </div>
     <br>
     <br>
+    <div class="position-ref">
+        <div class="content">
+            <div class="row">
+                <div class="col-lg">
+                    Stats last updated {{ stats.timestamp_utc }}
+                </div>
+            </div>
+        </div>
+    </div>
     <br>
     <br>
     <div class="position-ref">

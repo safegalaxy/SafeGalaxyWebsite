@@ -18,7 +18,7 @@ class PageController(Controller):
 
         # you have to setup an ngrok link and have a cloudfront url point
         # your ngrok to be able to dev locally. This is pointed at DEV
-        stats_cdn_url = "https://d13wpvp4xr14sc.cloudfront.net"
+        stats_cdn_url = env("AWS_CLOUDFRONT")
 
         try:
             response = requests.get(stats_cdn_url, timeout=2)
