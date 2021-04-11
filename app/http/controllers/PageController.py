@@ -21,7 +21,7 @@ class PageController(Controller):
         stats_cdn_url = "https://d13wpvp4xr14sc.cloudfront.net"
 
         try:
-            response = requests.get(stats_cdn_url, timeout=1)
+            response = requests.get(stats_cdn_url, timeout=2)
 
             stats = response.json()
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
