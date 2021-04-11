@@ -5,87 +5,87 @@
 {% block content %}
 
 
-    <div class="position-ref  background-sub-pages">
-        {% include "/components/navbar.html" %}
-        <div class="content container-sm">
-            <div class="col-lg">
-                <div class="row padding-top-70">
-                    <div class="col-sm-12">
-                        <h1 class="font-text-bold header-main" style="font-size: 48px;">Meet the faces behind<br>the Galaxy</h1>
-                    </div>
+<div class="position-ref  background-sub-pages">
+    {% include "/components/navbar.html" %}
+    <div class="content container-sm">
+        <div class="col-lg">
+            <div class="row padding-top-70">
+                <div class="col-sm-12">
+                    <h1 class="font-text-bold header-main" style="font-size: 48px;">Meet the faces behind<br>the Galaxy</h1>
                 </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <div class="row team-gutter-x">
-                {% for profile in top_profiles_data %}
-                <div class="col-lg-{{ (12 / top_profiles_data|length)|int }}">
-                    <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
-                        <p class="profile-text">
-                            <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
-                            <br>
-                            <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
-                            <br>
-                            <span style="font-size: 14px;">Connect through</span>
-                            <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
-                            <map name="linkedin_map-{{ profile.profile_name }}">
-                                <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
-                            </map>
-                            <hr class="profile-hr">
-                        </p>
-                    </div>
-                </div>
-                {% endfor %}
             </div>
         </div>
-        <div class="content container-sm">
-            <div class="row team-gutter-x">
-                {% for profile in center_profiles_data %}
-                <div class="col-lg-{{ (12 / center_profiles_data|length)|int }}">
-                    <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
-                        <p class="profile-text">
-                            <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
-                            <br>
-                            <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
-                            <br>
-                            <span style="font-size: 14px;">Connect through</span>
-                            <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
-                            <map name="linkedin_map-{{ profile.profile_name }}">
-                                <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
-                            </map>
-                            <hr class="profile-hr">
-                        </p>
-                    </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row team-gutter-x">
+            {% for profile in top_profiles_data %}
+            <div class="col-lg-{{ (12 / top_profiles_data|length)|int }}">
+                <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
+                    <p class="profile-text">
+                        <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
+                        <br>
+                        <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
+                        <br>
+                        <span style="font-size: 14px;">Connect through</span>
+                        <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
+                        <map name="linkedin_map-{{ profile.profile_name }}">
+                            <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
+                        </map>
+                        <hr class="profile-hr">
+                    </p>
                 </div>
-                {% endfor %}
             </div>
+            {% endfor %}
         </div>
-        <div class="content container-sm">
-            <div class="row team-gutter-x">
-                {% for profile in bottom_profiles_data %}
-                <div class="col-lg-{{ (12 / bottom_profiles_data|length)|int }}">
-                    <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
-                        <p class="profile-text">
-                            <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
-                            <br>
-                            <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
-                            <br>
-                            <span style="font-size: 14px;">Connect through</span>
-                            <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
-                            <map name="linkedin_map-{{ profile.profile_name }}">
-                                <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
-                            </map>
-                            <hr class="profile-hr">
-                        </p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <!-- <div class="bottom-gradient-main"></div> -->
     </div>
-    {% include "/components/footer.html" %}
+    <div class="content container-sm">
+        <div class="row team-gutter-x">
+            {% for profile in center_profiles_data %}
+            <div class="col-lg-{{ (12 / center_profiles_data|length)|int }}">
+                <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
+                    <p class="profile-text">
+                        <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
+                        <br>
+                        <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
+                        <br>
+                        <span style="font-size: 14px;">Connect through</span>
+                        <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
+                        <map name="linkedin_map-{{ profile.profile_name }}">
+                            <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
+                        </map>
+                        <hr class="profile-hr">
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="content container-sm">
+        <div class="row team-gutter-x">
+            {% for profile in bottom_profiles_data %}
+            <div class="col-lg-{{ (12 / bottom_profiles_data|length)|int }}">
+                <div class="profile-img" style="--url: url('{{ profile.img_url }}')">
+                    <p class="profile-text">
+                        <span style="font-weight: 800; font-family: 'Mosk Bold';">{{ profile.profile_name }}</span>
+                        <br>
+                        <span style="font-size: 16px;">{{ profile.profile_position|safe }}</span>
+                        <br>
+                        <span style="font-size: 14px;">Connect through</span>
+                        <img src="/storage/static/images/Linkedin.png" width="20px" height="20px" usemap="#linkedin_map-{{ profile.profile_name }}">
+                        <map name="linkedin_map-{{ profile.profile_name }}">
+                            <area shape="circle" coords="10,10,10" alt="Linkedin" target="_blank" class="team-img-area" href="{{ profile.linkedin_url }}">
+                        </map>
+                        <hr class="profile-hr">
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- <div class="bottom-gradient-main"></div> -->
+</div>
+{% include "/components/footer.html" %}
 {% endblock %}

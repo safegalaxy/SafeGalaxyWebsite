@@ -4,16 +4,33 @@
 
 {% block content %}
 
-
-    <div class="position-ref  top-background" style="height: 100vh;">
-        {% include "/components/navbar.html" %}
+<div class="position-ref  background-sub-pages">
+    {% include "/components/navbar.html" %}
+    <div class="content container-sm">
+        <div class="col-lg">
+            <div class="row padding-top-70">
+                <div class="col-sm-12">
+                    <h1 class="font-text-bold header-main" style="font-size: 36px;">Your next job in the<br>great great SafeGalaxy</h1>
+                </div>
+            </div>
+        </div>
         <br>
         <br>
-        <br>
-        <br>
-        <div class="row" style="font-weight: 800; color: #fff; text-align: center; display: block; margin-left: auto; margin-right: auto;">
-            <h1>COMING SOON!</h1>
+        <div class="row team-gutter-x row-cols-md-3">
+            {% for job in job_data %}
+            <div class="col">
+                <div class="job-img" style="--url: url('{{ job.img_url }}')">
+                    <h1 class="job-title">{{ job.job_title }}</h1>
+                    <p class="job-text">{{ job.job_desc }}</p>
+                    <button class="job-btn font-text-bold">
+                        <a target="_blank" href="{{ job.google_form_url }}">Apply for this Job</a>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
         </div>
     </div>
-    {% include "/components/footer.html" %}
+</div>
+<!-- <div class="bottom-gradient-main"></div> -->
+{% include "/components/footer.html" %}
 {% endblock %}

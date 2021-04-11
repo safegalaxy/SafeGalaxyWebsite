@@ -8,6 +8,8 @@ ROUTES = [
     Get('/whitepaper', 'PageController@whitepaper'),
     Get('/how-to-buy', 'PageController@how_to_buy'),
     Get('/jobs', 'PageController@jobs'),
+    Get('/tos', 'PageController@tos'),
+    Get('/policy', 'PageController@policy'),
 
     # API route
     Get('/public/stats', 'StatsController@stats'),
