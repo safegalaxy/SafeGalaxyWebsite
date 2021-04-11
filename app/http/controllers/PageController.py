@@ -14,11 +14,12 @@ class PageController(Controller):
 
         return view.render("pages/home", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
-            "path": request.path
+            "path": request.path,
+            "year": datetime.date.today().year
         })
 
     def team(self, view: View, request: Request):
-        # team profiles could be pulled dynamically with a DB.
+        # team profiles could be pulled dynamically with a DB
 
         top_profiles_data = [
             {"img_url": "/storage/static/images/SafeGalaxy-Spencer.png", "profile_name": "Spencer", "profile_position": "CEO & Developer", "linkedin_url": "https://www.linkedin.com/in/spencer-macey/"},
@@ -43,6 +44,7 @@ class PageController(Controller):
             "top_profiles_data": top_profiles_data,
             "center_profiles_data": center_profiles_data,
             "bottom_profiles_data": bottom_profiles_data,
+            "year": datetime.date.today().year
         })
 
     def whitepaper(self, view: View, request: Request):
@@ -50,7 +52,8 @@ class PageController(Controller):
 
         return view.render("pages/whitepaper", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
-            "path": request.path
+            "path": request.path,
+            "year": datetime.date.today().year
         })
 
     def how_to_buy(self, view: View, request: Request):
@@ -58,13 +61,43 @@ class PageController(Controller):
 
         return view.render("pages/how_to_buy", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
-            "path": request.path
+            "path": request.path,
+            "year": datetime.date.today().year
         })
 
     def jobs(self, view: View, request: Request):
-        # changes
+        # change
+
+        job_data = [
+            {"img_url": "/storage/static/images/Job-planet-1.png", "job_title": "Senior Developer", "job_desc": "Mauris at placerat augue. Fusce ornare semper dapibus. Nulla malesuada libero est, ac congue magna consequat elementum. Etiam massa metus, fringilla vel tortor id, rutrum dictum diam. Nulla semper est id ex mollis, quis accumsan arcu varius. ", "google_form_url": ""},
+            {"img_url": "/storage/static/images/Job-planet-2.png", "job_title": "Junior Developer", "job_desc": "Suspendisse varius felis ac nisi scelerisque, ac gravida ipsum feugiat. Nullam ut arcu at ligula pellentesque rutrum eget ut nunc. Etiam dictum odio iaculis placerat maximus. ", "google_form_url": ""},
+            {"img_url": "/storage/static/images/Job-planet-3.png", "job_title": "Senior Blockchain Developer", "job_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sollicitudin massa a pretium laoreet. Praesent tortor tellus, lobortis vel lectus sit amet, mollis blandit sapien. ", "google_form_url": ""},
+
+            {"img_url": "/storage/static/images/Job-planet-1.png", "job_title": "Senior Developer", "job_desc": "Mauris at placerat augue. Fusce ornare semper dapibus. Nulla malesuada libero est, ac congue magna consequat elementum. Etiam massa metus, fringilla vel tortor id, rutrum dictum diam. Nulla semper est id ex mollis, quis accumsan arcu varius. ", "google_form_url": ""},
+            {"img_url": "/storage/static/images/Job-planet-2.png", "job_title": "Junior Developer", "job_desc": "Suspendisse varius felis ac nisi scelerisque, ac gravida ipsum feugiat. Nullam ut arcu at ligula pellentesque rutrum eget ut nunc. Etiam dictum odio iaculis placerat maximus. ", "google_form_url": ""},
+        ]
 
         return view.render("pages/jobs", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
-            "path": request.path
+            "path": request.path,
+            "job_data": job_data,
+            "year": datetime.date.today().year
+        })
+
+    def tos(self, view: View, request: Request):
+        # changes
+
+        return view.render("pages/tos", {
+            "cache_buster": datetime.datetime.now().strftime("%s"),
+            "path": request.path,
+            "year": datetime.date.today().year
+        })
+
+    def policy(self, view: View, request: Request):
+        # changes
+
+        return view.render("pages/policy", {
+            "cache_buster": datetime.datetime.now().strftime("%s"),
+            "path": request.path,
+            "year": datetime.date.today().year
         })
