@@ -600,6 +600,18 @@ a:focus {
 
 }
 
+.stats-red {
+    color: red;
+}
+
+.stats-green {
+    color: green;
+}
+
+.stats-font {
+    font-size: 0.85rem;
+}
+
 @media (min-width: 1200px) {
 
     .team-gutter-x {
