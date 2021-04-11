@@ -14,12 +14,27 @@ class PageController(Controller):
         # change
 
         # you have to setup an ngrok link and have a cloudfront url point
-        # your ngrok to be able to use this.
-        stats_cdn_url = "https://d13wpvp4xr14sc.cloudfront.net"
+        # your ngrok to be able to dev locally. This is pointed at DEV
+        # stats_cdn_url = "https://d13wpvp4xr14sc.cloudfront.net"
 
-        response = requests.get(stats_cdn_url)
+        # response = requests.get(stats_cdn_url)
 
-        stats = response.json()
+        # stats = response.json()
+
+        stats = {
+            "holders": "24,338",
+            "liquidity_generated": "2,162,872.11",
+            "market_cap": "17,316,553.36",
+            "volume_24hr": "465,066.76",
+            "volume_24hr_change": 0.02,
+            "volume_24hr_direction": "down",
+            "tokens_burned": "364,432,902,901,376.02",
+            "current_price": "0.000000017395281",
+            "price_24hr_change": 0.19,
+            "price_24hr_direction": "down",
+            "timestamp_unix": 1618174481,
+            "timestamp_utc": "2021-04-11 20:54:41 UTC"
+        }
 
         return view.render("pages/home", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
