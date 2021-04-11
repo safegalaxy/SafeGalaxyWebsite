@@ -13,6 +13,8 @@ class PageController(Controller):
     def home(self, view: View, request: Request):
         # change
 
+        # you have to setup an ngrok link and have a cloudfront url point
+        # your ngrok to be able to use this.
         stats_cdn_url = "https://d13wpvp4xr14sc.cloudfront.net"
 
         response = requests.get(stats_cdn_url)
@@ -27,7 +29,7 @@ class PageController(Controller):
         })
 
     def team(self, view: View, request: Request):
-        # team profiles could be pulled dynamically with a DB.
+        # team profiles could be pulled dynamically with a DB
 
         top_profiles_data = [
             {"img_url": "/storage/static/images/SafeGalaxy-Spencer.png", "profile_name": "Spencer", "profile_position": "CEO & Developer", "linkedin_url": "https://www.linkedin.com/in/spencer-macey/"},
