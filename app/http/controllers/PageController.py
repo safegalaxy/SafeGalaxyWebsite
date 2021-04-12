@@ -8,10 +8,15 @@ import datetime
 from decimal import *
 import requests
 import boto3
+import logging
 
 
 class PageController(Controller):
     """Controller For Welcoming The User. """
+
+    def __init__(self, request: Request):
+        logging.basicConfig(level=logging.DEBUG)
+        self.logger = logging.getLogger(__name__)
 
     def home(self, view: View, request: Request):
         # change
@@ -22,6 +27,8 @@ class PageController(Controller):
 
         try:
             response = requests.get(stats_cdn_url, timeout=2)
+
+            self.logger.info('STARTING')
 
             stats = response.json()
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
