@@ -26,7 +26,7 @@ class PageController(Controller):
         stats_cdn_url = env("AWS_CLOUDFRONT")
 
         try:
-            response = requests.get(stats_cdn_url, timeout=15)
+            response = requests.get(stats_cdn_url, timeout=30)
 
             self.logger.info('Fresh PRice')
             self.logger.info(response)

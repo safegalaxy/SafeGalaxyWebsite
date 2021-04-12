@@ -105,5 +105,6 @@ class StatsController(Controller):
             }
 
             request.header("Content-Type", "application/json")
+            request.header("Cache-Control", "max-age=60")
 
             return json.dumps(stats)
