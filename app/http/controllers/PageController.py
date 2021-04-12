@@ -26,11 +26,13 @@ class PageController(Controller):
         stats_cdn_url = env("AWS_CLOUDFRONT")
 
         try:
-            response = requests.get(stats_cdn_url, timeout=2)
+            response = requests.get(stats_cdn_url, timeout=15)
 
-            self.logger.info('STARTING')
+            self.logger.info('Fresh PRice')
+            self.logger.info(response)
 
             stats = response.json()
+            self.logger.info(stats)
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
             last_id = 1
@@ -47,6 +49,8 @@ class PageController(Controller):
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
             stats = self.dynamodb_get(table_count)["Item"]
+            self.logger.info('Cached PRice')
+            self.logger.info(stats)
             cached = True
 
         # stats = {
