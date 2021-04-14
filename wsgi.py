@@ -38,8 +38,6 @@ for provider in providers.PROVIDERS:
 for provider in container.make('Providers'):
     container.resolve(provider.boot)
 
-Storage().compile_sass()
-
 """Get the application from the container
 Some providers may change the WSGI Server like wrapping the WSGI server
 in a Whitenoise container for an example. Let's get a WSGI instance

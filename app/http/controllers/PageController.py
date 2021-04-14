@@ -8,10 +8,15 @@ import datetime
 from decimal import *
 import requests
 import boto3
+import logging
 
 
 class PageController(Controller):
     """Controller For Welcoming The User. """
+
+    def __init__(self, request: Request):
+        logging.basicConfig(level=logging.DEBUG)
+        self.logger = logging.getLogger(__name__)
 
     def home(self, view: View, request: Request):
         # change
@@ -21,9 +26,13 @@ class PageController(Controller):
         stats_cdn_url = env("AWS_CLOUDFRONT")
 
         try:
-            response = requests.get(stats_cdn_url, timeout=2)
+            response = requests.get(stats_cdn_url, timeout=30)
+
+            self.logger.info('Fresh PRice')
+            self.logger.info(response)
 
             stats = response.json()
+            self.logger.info(stats)
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
             last_id = 1
@@ -40,6 +49,8 @@ class PageController(Controller):
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
             stats = self.dynamodb_get(table_count)["Item"]
+            self.logger.info('Cached PRice')
+            self.logger.info(stats)
             cached = True
 
         # stats = {
@@ -114,7 +125,7 @@ class PageController(Controller):
         })
 
     def jobs(self, view: View, request: Request):
-        # changes
+        # change
 
         job_data = [
             {"img_url": "/storage/static/images/Job-planet-1.png", "job_title": "Blockchain Developer", "job_desc": "We are looking for a full-time DApp/ DeFi Developer with Solidity skills who can work on a distributed (remote) team to continue the development and improvement of our platform, DeFi product suite, and technology strategy.", "google_form_url": "https://safegalaxy.aidaform.com/Apply"},
@@ -124,6 +135,7 @@ class PageController(Controller):
             {"img_url": "/storage/static/images/Job-planet-3.png", "job_title": "Executive Assistant", "job_desc": "We are looking for someone who can assist the executive team with meeting scheduling, organization, official correspondence, and other tasks as they are requested. You should be able to demonstrate an ability to work fast and efficiently in fast-paced, high-stress environments.", "google_form_url": "https://safegalaxy.aidaform.com/Apply"},
             {"img_url": "/storage/static/images/Job-planet-1.png", "job_title": "Community Manager", "job_desc": "We are looking for someone who is detail oriented, organized and can demonstrate the ability to work quickly, accurately and under pressure. Must be tech savvy. You should have a positive attitude and the desire to contribute to our team, be self-motivated, and able to work in a fast-paced, high-stress environments", "google_form_url": "https://safegalaxy.aidaform.com/Apply"},
             {"img_url": "/storage/static/images/Job-planet-2.png", "job_title": "Community Intern", "job_desc": "We are looking for someone who is detail oriented, organized and can demonstrate the ability to work quickly, accurately and under pressure. Must be tech savvy. You should have a positive attitude and the desire to contribute to our team, be self-motivated, and able to work in a fast-paced, high-stress environments", "google_form_url": "https://safegalaxy.aidaform.com/Apply"},
+            {"img_url": "/storage/static/images/Job-planet-2.png", "job_title": "Technical Project Manager", "job_desc": "We want someone who can be considered to be both a tech guru and an inspiring leader. As someone who is instrumental in the planning and management of both Software Developers and their projects.", "google_form_url": "https://safegalaxy.aidaform.com/Apply"},
         ]
 
         return view.render("pages/jobs", {

@@ -105,5 +105,7 @@ class StatsController(Controller):
             }
 
             request.header("Content-Type", "application/json")
+            request.header("Cache-Control", "max-age=60")
+            request.header("Last-Modified", datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'))
 
             return json.dumps(stats)

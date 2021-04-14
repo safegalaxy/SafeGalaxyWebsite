@@ -12,3 +12,5 @@ mysql_data
 .log
 /storage/logs/*.log
 /storage/logs
+/node_modules
+/package-lock.json
