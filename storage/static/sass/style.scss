@@ -150,8 +150,10 @@ a:focus {
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px;
-    font-size: 14px;
+    padding: 14px 0px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    font-family: 'Mosk Bold';
     text-decoration: none;
 }
 
@@ -264,6 +266,10 @@ a:focus {
     padding: 5px !important;
 }
 
+.navbar-padding-15 {
+    padding: 15px 0px;
+}
+
 .padding-15 {
     padding: 15px;
 }
@@ -273,7 +279,7 @@ a:focus {
 }
 
 .padding-top-70 {
-    padding-top: 70px;
+    padding-top: 10px;
 }
 
 .width-80 {
@@ -300,12 +306,12 @@ a:focus {
 }
 
 .header-main {
-    font-size: 80px;
+    font-size: 3rem;
     color: #fff;
 }
 
 .header-main-sm {
-    font-size: 32px;
+    font-size: 1.6rem;
     color: #fff;
 }
 
@@ -609,7 +615,7 @@ a:focus {
 }
 
 .stats-font {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
 }
 
 @media (min-width: 1200px) {
@@ -629,8 +635,12 @@ a:focus {
         font-size: 22px;
     }
 
+    #navbar a {
+        font-size: 1.2rem;
+    }
+
     .header-main {
-        font-size: 60px;
+        font-size: 2.8rem;
     }
 
     .whitepaper-overview {
@@ -644,7 +654,7 @@ a:focus {
     }
 
     .header-main-sm {
-        font-size: 28px;
+        font-size: 1.6rem;
     }
 
     .header-icon {

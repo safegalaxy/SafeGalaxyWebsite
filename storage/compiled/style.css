@@ -2,75 +2,93 @@
   font-family: "Mosk";
   src: url("/storage/static/font/Mosk Extra-Light 200.ttf") format("truetype");
   font-weight: normal;
-  font-style: normal; }
+  font-style: normal;
+}
 
 @font-face {
   font-family: "Mosk Bold";
   src: url("/storage/static/font/Mosk Bold 700.ttf") format("truetype");
   font-weight: bold;
-  font-style: normal; }
+  font-style: normal;
+}
 
-html, body {
+html,
+body {
   background-color: #0B001E;
   scroll-behavior: smooth;
   color: #FF3BFF;
   font-family: "Mosk", "Mosk Bold";
   font-weight: 700;
   height: 100vh;
-  margin: 0; }
+  margin: 0;
+}
 
 div {
   color: #fff;
   font-family: "Mosk";
   font-weight: 500;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 a:hover {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 a:focus {
-  outline: none !important; }
+  outline: none !important;
+}
 
 .align-left {
-  text-align: left; }
+  text-align: left;
+}
 
 .align-right {
-  text-align: right; }
+  text-align: right;
+}
 
 .font-text {
-  font-family: 'Mosk';
-  font-weight: 700; }
+  font-family: "Mosk";
+  font-weight: 700;
+}
 
 .font-text-bold {
-  font-family: 'Mosk Bold';
-  font-weight: 800; }
+  font-family: "Mosk Bold";
+  font-weight: 800;
+}
 
 .font-text-faq {
-  font-family: 'Mosk';
+  font-family: "Mosk";
   font-weight: 300;
-  float: left; }
+  float: left;
+}
 
 .full-height {
-  height: 100vh; }
+  height: 100vh;
+}
 
 .flex-center {
   align-items: center;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+}
 
 .position-ref {
-  position: relative; }
+  position: relative;
+}
 
 .top-right {
   position: absolute;
   right: 10px;
-  top: 18px; }
+  top: 18px;
+}
 
 .content {
-  text-align: center; }
+  text-align: center;
+}
 
 .title {
-  font-size: 84px; }
+  font-size: 84px;
+}
 
 /*.links>a {
     color: #636b6f;
@@ -81,8 +99,10 @@ a:focus {
     text-decoration: none;
     text-transform: uppercase;
 }*/
+
 .m-b-md {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+}
 
 .top-background {
   background-image: url("/storage/static/images/SafeGalaxy-background-V2.jpg");
@@ -91,7 +111,8 @@ a:focus {
   /*background-size: 100% 100%;*/
   background-size: cover;
   width: 100%;
-  height: auto; }
+  height: auto;
+}
 
 .bottom-background {
   background-image: url("/storage/static/images/SafeGalaxy-background-V1.jpg");
@@ -100,7 +121,8 @@ a:focus {
   /*background-size: 100% 100%;*/
   background-size: cover;
   width: 100%;
-  height: auto; }
+  height: auto;
+}
 
 .background-sub-pages {
   background-image: url("/storage/static/images/SafeGalaxy-background-V1.jpg");
@@ -108,26 +130,34 @@ a:focus {
   /*background-attachment: fixed;*/
   /*background-size: 100% 100%;*/
   /*    background-size: cover;
-    width: 100%;
-    height: auto;*/ }
+      width: 100%;
+      height: auto;*/
+}
 
 /* Style the navbar */
+
 #navbar {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  padding-top: 4%; }
+  padding-top: 4%;
+}
 
 /* Navbar links */
+
 #navbar a {
   display: block;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px;
-  font-size: 14px;
-  text-decoration: none; }
+  padding: 14px 0px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  font-family: "Mosk Bold";
+  text-decoration: none;
+}
 
 /* footer links */
+
 .footer a {
   display: block;
   color: #f2f2f2;
@@ -135,46 +165,59 @@ a:focus {
   padding: 10px;
   font-size: 16px;
   text-decoration: none;
-  font-weight: 500; }
+  font-weight: 500;
+}
 
 .footer {
   /*max-width: 650px;*/
   margin: auto 0px 0px 25%;
-  padding: 20px; }
+  padding: 20px;
+}
 
 @media (max-width: 992px) {
   .footer {
     /*max-width: 650px;*/
     margin: auto 0px 0px 10%;
-    padding: 20px; } }
+    padding: 20px;
+  }
+}
 
 @media (min-width: 663px) {
   .footer-mobile {
     /*max-width: 650px;*/
-    display: none; } }
+    display: none;
+  }
+}
 
 @media (max-width: 663px) {
   .footer {
     /*max-width: 650px;*/
-    display: none; }
+    display: none;
+  }
+
   .footer-logo {
     width: 250px;
-    height: 40px; } }
+    height: 40px;
+  }
+}
 
 .footer-header {
   color: #f2f2f2;
   padding: 20px;
   font-size: 18px;
   font-weight: 800;
-  text-align: left; }
+  text-align: left;
+}
 
 .footer-header-mobile {
   color: #f2f2f2;
   font-size: 18px;
   font-weight: 800;
-  text-align: center; }
+  text-align: center;
+}
 
 /* footer links */
+
 .footer-mobile a {
   display: block;
   color: #f2f2f2;
@@ -182,24 +225,32 @@ a:focus {
   padding: 10px;
   font-size: 16px;
   text-decoration: none;
-  font-weight: 500; }
+  font-weight: 500;
+}
 
 .footer-container {
   /*max-width: 850px;*/
-  margin: auto; }
+  margin: auto;
+}
 
 /* Page content */
+
 .content {
-  padding: 16px; }
+  padding: 16px;
+}
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+
 .sticky {
   position: fixed;
-  width: 100%; }
+  width: 100%;
+}
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+
 .sticky + .content {
-  padding-top: 60px; }
+  padding-top: 60px;
+}
 
 .how-to-buy {
   background-color: #FF3BFF;
@@ -207,57 +258,74 @@ a:focus {
   border-radius: 15px;
   width: 150px;
   height: 40px;
-  font-size: 16px; }
+  font-size: 16px;
+}
 
 .how-to-buy a {
-  padding: 5px !important; }
+  padding: 5px !important;
+}
+
+.navbar-padding-15 {
+  padding: 15px 0px;
+}
 
 .padding-15 {
-  padding: 15px; }
+  padding: 15px;
+}
 
 .padding-25 {
-  padding: 25px; }
+  padding: 25px;
+}
 
 .padding-top-70 {
-  padding-top: 70px; }
+  padding-top: 10px;
+}
 
 .width-80 {
   width: 80%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
 .social {
   background-color: #FF3BFF;
   background-color: rgba(255, 59, 255, 0.2);
   height: 30px;
-  --bs-gutter-x: 0rem; }
+  --bs-gutter-x: 0rem;
+}
 
 .social-bottom {
-  margin: 10px; }
+  margin: 10px;
+}
 
 .center-items {
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
 .header-main {
-  font-size: 80px;
-  color: #fff; }
+  font-size: 3rem;
+  color: #fff;
+}
 
 .header-main-sm {
-  font-size: 32px;
-  color: #fff; }
+  font-size: 1.6rem;
+  color: #fff;
+}
 
 .sub-header-main {
   font-size: 40px;
   color: #fff;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .sub-header-main-sm {
   font-size: 22px;
   color: #fff;
   font-weight: 100;
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .social-navbar-sm {
   font-size: 0.85rem;
@@ -265,131 +333,152 @@ a:focus {
   font-weight: 100;
   margin-top: 0px;
   margin-left: 20px;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+}
 
 .social-navbar-main {
   font-size: 0.85rem;
   color: #fff;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+}
 
 .social-navbar {
   float: right;
-  margin: 5px 10px 5px 10px; }
+  margin: 5px 10px 5px 10px;
+}
 
 .social-left {
   margin-left: 15%;
   max-width: 50%;
-  width: 50%; }
+  width: 50%;
+}
 
 .social-right {
   max-width: 25%;
-  width: 25%; }
+  width: 25%;
+}
 
 .sub-header-main-blocks {
   font-size: 32px;
   color: #fff;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .sub-header-main-blocks-sm {
   font-size: 22px;
   color: #fff;
   font-weight: 100;
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .contact-address {
   font-size: 28px;
   color: #fff;
   font-weight: 500;
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .clipboard-copy-link {
   color: inherit;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .bottom-gradient-main {
   height: 200px;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,0b001e+100&0+0,0.4+25,0.6+45,0.75+60,0.85+75,1+90 */
-  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(3, 0, 8, 0.4) 25%, rgba(5, 0, 14, 0.6) 45%, rgba(7, 0, 18, 0.75) 60%, rgba(9, 0, 23, 0.85) 75%, #0a001b 90%, #0b001e 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(3, 0, 8, 0.4) 25%, rgba(5, 0, 14, 0.6) 45%, rgba(7, 0, 18, 0.75) 60%, rgba(9, 0, 23, 0.85) 75%, #0a001b 90%, #0b001e 100%);
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(3, 0, 8, 0.4) 25%, rgba(5, 0, 14, 0.6) 45%, rgba(7, 0, 18, 0.75) 60%, rgba(9, 0, 23, 0.85) 75%, #0a001b 90%, #0b001e 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#0b001e',GradientType=0 );
-  /* IE6-9 */ }
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#00000000", endColorstr="#0b001e",GradientType=0 );
+  /* IE6-9 */
+}
 
 .top-gradient-main {
   height: 200px;
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0b001e+0,000000+100&1+10,0.85+25,0.75+40,0.6+55,0.4+75,0+100 */
-  background: -moz-linear-gradient(top, #0b001e 0%, #0a001b 10%, rgba(8, 0, 23, 0.85) 25%, rgba(6, 0, 18, 0.75) 40%, rgba(5, 0, 14, 0.6) 55%, rgba(3, 0, 8, 0.4) 75%, rgba(0, 0, 0, 0) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #0b001e 0%, #0a001b 10%, rgba(8, 0, 23, 0.85) 25%, rgba(6, 0, 18, 0.75) 40%, rgba(5, 0, 14, 0.6) 55%, rgba(3, 0, 8, 0.4) 75%, rgba(0, 0, 0, 0) 100%);
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #0b001e 0%, #0a001b 10%, rgba(8, 0, 23, 0.85) 25%, rgba(6, 0, 18, 0.75) 40%, rgba(5, 0, 14, 0.6) 55%, rgba(3, 0, 8, 0.4) 75%, rgba(0, 0, 0, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b001e', endColorstr='#00000000',GradientType=0 );
-  /* IE6-9 */ }
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0b001e", endColorstr="#00000000",GradientType=0 );
+  /* IE6-9 */
+}
 
 .main-page-buttons {
   height: 50px;
   width: 250px;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 .main-page-buttons a {
   display: block;
   color: #f2f2f2;
   text-align: center;
   padding: 14px;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .faq-row {
   width: 75%;
   display: block;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+}
 
 .faq-expand-btn {
   float: right;
   background-color: #0b001e;
   border: none;
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 .faq-answer {
   background-color: #0b001e;
   color: #fff;
   font-size: 22px;
-  text-align: left; }
+  text-align: left;
+}
 
 .hide-icon-faq {
-  display: none; }
+  display: none;
+}
 
 .contract-address {
   font-size: 32px;
   color: #fff;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 .how-to-buy-text {
   color: #fff;
   font-size: 32px;
-  margin: 0; }
+  margin: 0;
+}
 
 .how-to-buy-img {
-  margin: auto 10px auto 0; }
+  margin: auto 10px auto 0;
+}
 
 .display-flex {
-  display: flex; }
+  display: flex;
+}
 
 .mobile {
-  display: none; }
+  display: none;
+}
 
 .desktop {
-  display: flex; }
+  display: flex;
+}
 
 .header-icon {
   display: flex;
-  justify-content: flex-end; }
+  justify-content: flex-end;
+}
 
 /* Team page */
+
 .profile-img {
   background-image: var(--url);
   background-repeat: no-repeat;
@@ -397,7 +486,8 @@ a:focus {
   position: relative;
   width: 235px;
   height: 375px;
-  margin: 20px auto 20px auto; }
+  margin: 20px auto 20px auto;
+}
 
 .profile-text {
   position: absolute;
@@ -406,8 +496,9 @@ a:focus {
   right: 0;
   color: #000;
   font-weight: 500;
-  font-family: 'Mosk';
-  font-size: 18px; }
+  font-family: "Mosk";
+  font-size: 18px;
+}
 
 .profile-hr {
   position: absolute;
@@ -416,37 +507,44 @@ a:focus {
   width: 175px;
   left: 0;
   right: 0;
-  margin: auto; }
+  margin: auto;
+}
 
 .team-img-area {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   outline: 1px solid transparent;
   /*You just need this if you are only concerned with android and not desktop browsers.*/
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
 
 /* Whitepaper page */
+
 .whitepaper-header {
   font-family: "Mosk Bold";
   font-weight: 800;
-  color: #fff; }
+  color: #fff;
+}
 
 .whitepaper-text {
   font-family: "Mosk";
   font-weight: 500;
-  color: #fff; }
+  color: #fff;
+}
 
 .whitepaper-overview {
-  font-size: 18px; }
+  font-size: 18px;
+}
 
 .whitepaper-tokenomics {
-  font-size: 24px; }
+  font-size: 24px;
+}
 
 /*  Jobs Page */
+
 .job-img {
   background-image: var(--url);
   background-repeat: no-repeat;
@@ -454,7 +552,8 @@ a:focus {
   position: relative;
   width: 300px;
   height: 425px;
-  margin: 20px auto 20px auto; }
+  margin: 20px auto 20px auto;
+}
 
 .job-title {
   position: absolute;
@@ -463,10 +562,11 @@ a:focus {
   right: 0;
   color: #000;
   font-weight: 800;
-  font-family: 'Mosk Bold';
+  font-family: "Mosk Bold";
   font-size: 1.2rem;
   width: 80%;
-  margin: auto; }
+  margin: auto;
+}
 
 .job-text {
   position: absolute;
@@ -475,11 +575,12 @@ a:focus {
   right: 0;
   color: #000;
   font-weight: 500;
-  font-family: 'Mosk';
+  font-family: "Mosk";
   font-size: 0.85rem;
   width: 80%;
   margin: auto;
-  text-align: left; }
+  text-align: left;
+}
 
 .job-btn {
   position: absolute;
@@ -491,74 +592,126 @@ a:focus {
   border-radius: 10px;
   width: 175px;
   height: 40px;
-  margin: auto; }
+  margin: auto;
+}
 
 .job-btn a {
   color: #fff;
   font-weight: 800;
-  font-family: 'Mosk Bold';
+  font-family: "Mosk Bold";
   font-size: 16px;
-  text-decoration: none; }
+  text-decoration: none;
+}
 
 .stats-red {
-  color: red; }
+  color: red;
+}
 
 .stats-green {
-  color: green; }
+  color: green;
+}
 
 .stats-font {
-  font-size: 1.7rem; }
+  font-size: 1.4rem;
+}
 
 @media (min-width: 1200px) {
   .team-gutter-x {
-    --bs-gutter-x: -12rem; }
+    --bs-gutter-x: -12rem;
+  }
+
   .how-to-buy-container {
-    max-width: 75%; } }
+    max-width: 75%;
+  }
+}
 
 @media (max-width: 575px) {
   body {
-    font-size: 22px; }
+    font-size: 22px;
+  }
+
+  #navbar a {
+    font-size: 1.2rem;
+  }
+
   .header-main {
-    font-size: 60px; }
+    font-size: 2.8rem;
+  }
+
   .whitepaper-overview {
-    margin: 20px; }
+    margin: 20px;
+  }
+
   .whitepaper-tokenomics {
     font-size: 16px;
-    padding-right: 20px; }
+    padding-right: 20px;
+  }
+
   .header-main-sm {
-    font-size: 28px; }
+    font-size: 1.6rem;
+  }
+
   .header-icon {
     display: flex;
-    justify-content: center; }
+    justify-content: center;
+  }
+
   .bottom-gradient-main {
-    height: 0px; }
+    height: 0px;
+  }
+
   .top-gradient-main {
-    height: 0px; }
+    height: 0px;
+  }
+
   .sub-header-main-blocks {
-    font-size: 28px; }
+    font-size: 28px;
+  }
+
   .faq-answer {
-    font-size: 16px; }
+    font-size: 16px;
+  }
+
   .sub-header-main-blocks-sm {
-    font-size: 16px; }
+    font-size: 16px;
+  }
+
   .contract-address {
-    font-size: 14px; }
+    font-size: 14px;
+  }
+
   .how-to-buy-text {
-    font-size: 22px; }
+    font-size: 22px;
+  }
+
   .mobile {
-    display: block; }
+    display: block;
+  }
+
   .desktop {
-    display: none; } }
+    display: none;
+  }
+}
 
 @media (max-width: 992px) {
   .desktop {
-    display: none; }
+    display: none;
+  }
+
   .mobile {
-    display: block; }
+    display: block;
+  }
+
   .header-icon {
     display: flex;
-    justify-content: center; } }
+    justify-content: center;
+  }
+}
 
 /*override default bootstrap css*/
+
 .navbar-toggler:focus {
   outline: none;
-  border: none; }
+  border: none;
+}
+
