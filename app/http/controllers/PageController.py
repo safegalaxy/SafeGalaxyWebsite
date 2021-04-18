@@ -27,7 +27,7 @@ class PageController(Controller):
         self.logger.info(stats_cdn_url)
 
         try:
-            response = requests.get(stats_cdn_url, timeout=30)
+            response = requests.get(stats_cdn_url, timeout=5)
 
             self.logger.info('Fresh PRice')
             self.logger.info(response)
