@@ -24,6 +24,7 @@ class PageController(Controller):
         # you have to setup an ngrok link and have a cloudfront url point
         # your ngrok to be able to dev locally. This is pointed at DEV
         stats_cdn_url = env("AWS_CLOUDFRONT")
+        self.logger.info(stats_cdn_url)
 
         try:
             response = requests.get(stats_cdn_url, timeout=30)
@@ -68,6 +69,10 @@ class PageController(Controller):
         #     "timestamp_unix": 1618174481,
         #     "timestamp_utc": "2021-04-11 20:54:41 UTC"
         # }
+
+        stats["price_24hr_change"] = float(stats["price_24hr_change"]) * 100
+        stats["volume_24hr_change"] = float(stats["volume_24hr_change"]) * 100
+
 
         return view.render("pages/home", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
