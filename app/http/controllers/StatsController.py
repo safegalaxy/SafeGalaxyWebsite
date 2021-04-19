@@ -3,10 +3,12 @@
 from masonite.request import Request
 from masonite.controllers import Controller
 import app.helpers.utilities as utilities
+from masonite import env
 from web3 import Web3
 import simplejson as json
 from decimal import *
 import requests
+import boto3
 from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 import requests
@@ -104,8 +106,54 @@ class StatsController(Controller):
                 "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z"),
             }
 
+            self.dynamodb_update(1, stats)
+
             request.header("Content-Type", "application/json")
             request.header("Cache-Control", "max-age=60")
             request.header("Last-Modified", datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'))
 
             return json.dumps(stats)
+
+    def dynamodb_update(self, last_id, stats):
+        dynamodb = boto3.resource(
+            "dynamodb",
+            aws_access_key_id=env("AWS_CLIENT"),
+            aws_secret_access_key=env("AWS_SECRET"),
+            region_name="us-east-1",
+            endpoint_url="https://dynamodb.us-east-1.amazonaws.com"
+        )
+        table = dynamodb.Table("last_price")
+        response = table.update_item(
+            Key={
+                "last_id": last_id,
+            },
+            UpdateExpression="set \
+                current_price = :var1 \
+                holders = :var2 \
+                liquidity_generated = :var3 \
+                market_cap = :var4 \
+                price_24hr_change = :var5 \
+                price_24hr_direction = :var6 \
+                timestamp_unix = :var7 \
+                timestamp_utc = :var8 \
+                tokens_burned = :var9 \
+                volume_24hr = :var10 \
+                volume_24hr_change = :var11 \
+                volume_24hr_direction = :var12",
+            ExpressionAttributeValues={
+                ':var1': stats["current_price"],
+                ':var2': stats["holders"],
+                ':var3': stats["liquidity_generated"],
+                ':var4': stats["market_cap"],
+                ':var5': stats["price_24hr_change"],
+                ':var6': stats["price_24hr_direction"],
+                ':var7': stats["timestamp_unix"],
+                ':var8': stats["timestamp_utc"],
+                ':var9': stats["tokens_burned"],
+                ':var10': stats["volume_24hr"],
+                ':var11': stats["volume_24hr_change"],
+                ':var12': stats["volume_24hr_direction"],
+            },
+        )
+
+        return response

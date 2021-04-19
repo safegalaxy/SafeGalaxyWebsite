@@ -55,4 +55,5 @@ them in but feel free to autoload any directories
 
 AUTOLOAD = [
     'app',
+    "app/tasks",
 ]
