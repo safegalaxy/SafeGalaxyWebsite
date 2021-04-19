@@ -54,7 +54,7 @@ class PageController(Controller):
         #     # self.logger.info(stats)
         #     cached = True
 
-        stats = self.dynamodb_get(table_count)["Item"]
+        stats = self.dynamodb_get(1)["Item"]
         # self.logger.info('Cached PRice')
         # self.logger.info(stats)
         cached = True
