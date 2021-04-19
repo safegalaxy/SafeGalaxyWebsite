@@ -26,33 +26,38 @@ class PageController(Controller):
         stats_cdn_url = env("AWS_CLOUDFRONT")
         # self.logger.info(stats_cdn_url)
 
-        try:
-            response = requests.get(stats_cdn_url, timeout=5)
+        # try:
+        #     response = requests.get(stats_cdn_url, timeout=2)
 
-            # self.logger.info('Fresh PRice')
-            # self.logger.info(response)
+        #     # self.logger.info('Fresh PRice')
+        #     # self.logger.info(response)
 
-            stats = response.json()
-            # self.logger.info(stats)
-            table_count = self.dynamodb_scan_completed()["ScannedCount"]
+        #     stats = response.json()
+        #     # self.logger.info(stats)
+        #     table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
-            last_id = 1
-            if int(table_count) != 0:
-                last_id = int(table_count)
+        #     last_id = 1
+        #     if int(table_count) != 0:
+        #         last_id = int(table_count)
 
-            stats["last_id"] = last_id
+        #     stats["last_id"] = last_id
 
-            self.dynamodb_delete(int(table_count))
+        #     self.dynamodb_delete(int(table_count))
 
-            self.dynamodb_put(stats)
-            cached = False
-        except requests.exceptions.Timeout:
-            table_count = self.dynamodb_scan_completed()["ScannedCount"]
+        #     self.dynamodb_put(stats)
+        #     cached = False
+        # except requests.exceptions.Timeout:
+        #     table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
-            stats = self.dynamodb_get(table_count)["Item"]
-            # self.logger.info('Cached PRice')
-            # self.logger.info(stats)
-            cached = True
+        #     stats = self.dynamodb_get(table_count)["Item"]
+        #     # self.logger.info('Cached PRice')
+        #     # self.logger.info(stats)
+        #     cached = True
+
+        stats = self.dynamodb_get(table_count)["Item"]
+        # self.logger.info('Cached PRice')
+        # self.logger.info(stats)
+        cached = True
 
         # stats = {
         #     "last_id": 1,
