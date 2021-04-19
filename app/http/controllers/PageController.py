@@ -14,9 +14,9 @@ import logging
 class PageController(Controller):
     """Controller For Welcoming The User. """
 
-    def __init__(self, request: Request):
-        logging.basicConfig(level=logging.DEBUG)
-        self.logger = logging.getLogger(__name__)
+    # def __init__(self, request: Request):
+    #     logging.basicConfig(level=logging.DEBUG)
+    #     self.logger = logging.getLogger(__name__)
 
     def home(self, view: View, request: Request):
         # change
