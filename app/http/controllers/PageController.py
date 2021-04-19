@@ -24,16 +24,16 @@ class PageController(Controller):
         # you have to setup an ngrok link and have a cloudfront url point
         # your ngrok to be able to dev locally. This is pointed at DEV
         stats_cdn_url = env("AWS_CLOUDFRONT")
-        self.logger.info(stats_cdn_url)
+        # self.logger.info(stats_cdn_url)
 
         try:
             response = requests.get(stats_cdn_url, timeout=5)
 
-            self.logger.info('Fresh PRice')
-            self.logger.info(response)
+            # self.logger.info('Fresh PRice')
+            # self.logger.info(response)
 
             stats = response.json()
-            self.logger.info(stats)
+            # self.logger.info(stats)
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
             last_id = 1
@@ -50,8 +50,8 @@ class PageController(Controller):
             table_count = self.dynamodb_scan_completed()["ScannedCount"]
 
             stats = self.dynamodb_get(table_count)["Item"]
-            self.logger.info('Cached PRice')
-            self.logger.info(stats)
+            # self.logger.info('Cached PRice')
+            # self.logger.info(stats)
             cached = True
 
         # stats = {
