@@ -6,3 +6,4 @@ gunicorn==19.9.0
 web3==5.17
 boto3==1.9.109
 beautifulsoup4==4.9
+cloudscraper==1.2.58
