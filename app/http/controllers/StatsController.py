@@ -42,70 +42,70 @@ class StatsController(Controller):
         if action == "cir-supply":
             return total_cir_supply
 
-        else:
-            dead = Web3.fromWei(burn, "nanoether")
-            price_one_bnb = Web3.fromWei(wbnb_to_busd[1], "wei")
+        # else:
+        #     dead = Web3.fromWei(burn, "nanoether")
+        #     price_one_bnb = Web3.fromWei(wbnb_to_busd[1], "wei")
 
-            new_dead = '{:,}'.format(round(dead, 2))
+        #     new_dead = '{:,}'.format(round(dead, 2))
 
-            decimal = 1000000000
+        #     decimal = 1000000000
 
-            # total supply market cap calc, not cir supply
-            market_cap_usd = total_supply / float(wbnb_to_safe[1]) / decimal * float(price_one_bnb)
+        #     # total supply market cap calc, not cir supply
+        #     market_cap_usd = total_supply / float(wbnb_to_safe[1]) / decimal * float(price_one_bnb)
 
-            cap_usd = '{:,}'.format(round(market_cap_usd, 2))
+        #     cap_usd = '{:,}'.format(round(market_cap_usd, 2))
 
-            response = requests.get("https://api.dex.guru/v1/tokens/0x6b51231c43b1604815313801db5e9e614914d6e4-bsc")
+        #     response = requests.get("https://api.dex.guru/v1/tokens/0x6b51231c43b1604815313801db5e9e614914d6e4-bsc")
 
-            status_code = response.status_code
-            r_json = response.json()
+        #     status_code = response.status_code
+        #     r_json = response.json()
 
-            print(status_code)
-            print(r_json)
+        #     print(status_code)
+        #     print(r_json)
 
-            volume_24hr_direction = "up"
-            if float(r_json["volumeChange24h"]) < 0.0:
-                volume_24hr_direction = "down"
+        #     volume_24hr_direction = "up"
+        #     if float(r_json["volumeChange24h"]) < 0.0:
+        #         volume_24hr_direction = "down"
 
-            price_24hr_direction = "up"
-            if float(r_json["priceChange24h"]) < 0.0:
-                price_24hr_direction = "down"
+        #     price_24hr_direction = "up"
+        #     if float(r_json["priceChange24h"]) < 0.0:
+        #         price_24hr_direction = "down"
 
-            holders_url = "https://bscscan.com/token/0x6b51231c43b1604815313801db5e9e614914d6e4"
+        #     holders_url = "https://bscscan.com/token/0x6b51231c43b1604815313801db5e9e614914d6e4"
 
-            headers = {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET',
-                'Access-Control-Allow-Headers': 'Content-Type',
-                'Access-Control-Max-Age': '3600',
-                'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
-            }
+        #     headers = {
+        #         'Access-Control-Allow-Origin': '*',
+        #         'Access-Control-Allow-Methods': 'GET',
+        #         'Access-Control-Allow-Headers': 'Content-Type',
+        #         'Access-Control-Max-Age': '3600',
+        #         'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
+        #     }
 
-            req = requests.get(holders_url, headers)
+        #     req = requests.get(holders_url, headers)
 
-            soup = BeautifulSoup(req.content, "html.parser")
+        #     soup = BeautifulSoup(req.content, "html.parser")
 
-            body_tags = "".join([str(s) for s in soup.find_all('div', id=lambda x: x and x.endswith('tokenHolders'))])
+        #     body_tags = "".join([str(s) for s in soup.find_all('div', id=lambda x: x and x.endswith('tokenHolders'))])
 
-            soup = BeautifulSoup(body_tags, "html.parser")
+        #     soup = BeautifulSoup(body_tags, "html.parser")
 
-            stats = {
-                "holders": soup.get_text().split()[1],
-                "liquidity_generated": '{:,}'.format(round(r_json["liquidityUSD"], 2)),
-                "market_cap": cap_usd,
-                "volume_24hr": '{:,}'.format(round(r_json["volume24hUSD"], 2)),
-                "volume_24hr_change": str(abs(round(r_json["volumeChange24h"], 2))),
-                "volume_24hr_direction": volume_24hr_direction,
-                "tokens_burned": new_dead,
-                "current_price": format(float(r_json["priceUSD"]), '.15f'),
-                "price_24hr_change": str(abs(round(r_json["priceChange24h"], 2))),
-                "price_24hr_direction": price_24hr_direction,
-                "timestamp_unix": int(datetime.now().timestamp()),
-                "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z"),
-            }
+        #     stats = {
+        #         "holders": soup.get_text().split()[1],
+        #         "liquidity_generated": '{:,}'.format(round(r_json["liquidityUSD"], 2)),
+        #         "market_cap": cap_usd,
+        #         "volume_24hr": '{:,}'.format(round(r_json["volume24hUSD"], 2)),
+        #         "volume_24hr_change": str(abs(round(r_json["volumeChange24h"], 2))),
+        #         "volume_24hr_direction": volume_24hr_direction,
+        #         "tokens_burned": new_dead,
+        #         "current_price": format(float(r_json["priceUSD"]), '.15f'),
+        #         "price_24hr_change": str(abs(round(r_json["priceChange24h"], 2))),
+        #         "price_24hr_direction": price_24hr_direction,
+        #         "timestamp_unix": int(datetime.now().timestamp()),
+        #         "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z"),
+        #     }
 
-            request.header("Content-Type", "application/json")
-            request.header("Cache-Control", "max-age=60")
-            request.header("Last-Modified", datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'))
+        #     request.header("Content-Type", "application/json")
+        #     request.header("Cache-Control", "max-age=60")
+        #     request.header("Last-Modified", datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'))
 
-            return json.dumps(stats)
+        #     return json.dumps(stats)
