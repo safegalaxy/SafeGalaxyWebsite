@@ -440,6 +440,12 @@ a:focus {
   text-align: left;
 }
 
+.disclaimer-expand-btn {
+  background-color: #0b001e;
+  border: none;
+  box-shadow: none;
+}
+
 .hide-icon-faq {
   display: none;
 }
