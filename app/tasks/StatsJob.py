@@ -10,6 +10,7 @@ import boto3
 from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 import cloudscraper
+from requests_html import HTMLSession
 
 
 class StatsJob(Task):
@@ -52,12 +53,66 @@ class StatsJob(Task):
 
         cap_usd = '{:,}'.format(round(market_cap_usd, 2))
 
-        print(market_cap_usd)
-        print(total_cir_supply)
-        print(total_supply)
-        print(format(float(market_cap_usd / total_supply), '.25f'))
+        # print(market_cap_usd)
+        # print(total_cir_supply)
+        # print(total_supply)
+        # print(format(float(market_cap_usd / total_supply), '.25f'))
 
         dex_guru_url = "https://api.dex.guru/v1/tokens/0x6b51231c43b1604815313801db5e9e614914d6e4-bsc"
+        bogcharts_url = "https://charts.bogged.finance/?token=0x6b51231c43B1604815313801dB5E9E614914d6e4"
+
+        session = HTMLSession(
+            browser_args=[
+                '--no-sandbox',
+                '--single-process',
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--no-zygote'
+            ]
+        )
+
+        r = session.get(bogcharts_url)
+
+        bogged_status_code = r.status_code
+
+        # bogged_call_success = False
+        if bogged_status_code == 200:
+            # bogged_call_success = True
+
+            r.html.render(sleep=15, keep_page=True)
+
+            html_content = r.html.html
+
+            soup = BeautifulSoup(html_content, "html.parser")
+
+            print(soup.find_all("h4"))
+
+            scifi_nota_price = float(soup.find_all("h4")[1].text.split("$")[-1])
+            price_24hr = float(soup.find_all("h4")[2].text.split("%")[0])
+            volume_24hr = float(soup.find_all("h4")[3].text.split("$")[-1].replace(",", ""))
+            liquidity_generated = float(soup.find_all("h4")[4].text.split("$")[-1].replace(",", ""))
+
+            print("bogged charts price")
+            print(scifi_nota_price)
+            print(price_24hr)
+            print(volume_24hr)
+            print(liquidity_generated)
+
+            if scifi_nota_price == 0:
+                stat_record = dynamodb_get("1")["Item"]
+                current_long_price = stat_record["current_price"]
+                price_24hr = stat_record["price_24hr_change"]
+                volume_24hr = stat_record["volume_24hr"]
+                liquidity_generated = stat_record["liquidity_generated"]
+
+            else:
+                current_long_price = format(float(scifi_nota_price), '.15f')
+        else:
+            stat_record = dynamodb_get("1")["Item"]
+            current_long_price = stat_record["current_price"]
+            price_24hr = stat_record["price_24hr_change"]
+            volume_24hr = stat_record["volume_24hr"]
+            liquidity_generated = stat_record["liquidity_generated"]
 
         scraper = cloudscraper.create_scraper()
         response = scraper.get(dex_guru_url, timeout=2)
@@ -77,7 +132,7 @@ class StatsJob(Task):
             volume_24hr_direction = "down"
 
         price_24hr_direction = "up"
-        if float(r_json["priceChange24h"]) < 0.0:
+        if float(price_24hr) < 0.0:
             price_24hr_direction = "down"
 
         holders_url = "https://bscscan.com/token/0x6b51231c43b1604815313801db5e9e614914d6e4"
@@ -100,14 +155,14 @@ class StatsJob(Task):
 
         stats = {
             "holders": soup.get_text().split()[1],
-            "liquidity_generated": '{:,}'.format(round(r_json["liquidityUSD"], 2)),
+            "liquidity_generated": '{:,}'.format(round(liquidity_generated, 2)),
             "market_cap": cap_usd,
-            "volume_24hr": '{:,}'.format(round(r_json["volume24hUSD"], 2)),
+            "volume_24hr": '{:,}'.format(round(volume_24hr, 2)),
             "volume_24hr_change": str(abs(round(r_json["volumeChange24h"], 2))),
             "volume_24hr_direction": volume_24hr_direction,
             "tokens_burned": new_dead,
-            "current_price": format(float(r_json["priceUSD"]), '.15f'),
-            "price_24hr_change": str(abs(round(r_json["priceChange24h"], 2))),
+            "current_price": current_long_price,
+            "price_24hr_change": str(abs(round(price_24hr / 100, 2))),
             "price_24hr_direction": price_24hr_direction,
             "timestamp_unix": int(datetime.now().timestamp()),
             "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z"),
@@ -118,6 +173,22 @@ class StatsJob(Task):
         dynamo_response = self.dynamodb_update(1, stats)
 
         print(dynamo_response)
+
+    def dynamodb_get(self, last_id):
+        dynamodb = boto3.resource(
+            "dynamodb",
+            aws_access_key_id=env("AWS_CLIENT"),
+            aws_secret_access_key=env("AWS_SECRET"),
+            region_name="us-east-1",
+            endpoint_url="https://dynamodb.us-east-1.amazonaws.com"
+        )
+        table = dynamodb.Table("last_price")
+        response = table.get_item(
+            Key={
+                "last_id": last_id,
+            },
+        )
+        return response
 
     def dynamodb_update(self, last_id, stats):
         dynamodb = boto3.resource(
