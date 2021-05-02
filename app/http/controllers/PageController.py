@@ -75,9 +75,8 @@ class PageController(Controller):
         #     "timestamp_utc": "2021-04-11 20:54:41 UTC"
         # }
 
-        stats["price_24hr_change"] = float(stats["price_24hr_change"]) * 100
-        stats["volume_24hr_change"] = float(stats["volume_24hr_change"]) * 100
-
+        stats["price_24hr_change"] = round(float(stats["price_24hr_change"]) * 100, 2)
+        stats["volume_24hr_change"] = round(float(stats["volume_24hr_change"]) * 100, 2)
 
         return view.render("pages/home", {
             "cache_buster": datetime.datetime.now().strftime("%s"),
