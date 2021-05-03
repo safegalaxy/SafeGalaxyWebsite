@@ -99,7 +99,7 @@ class StatsJob(Task):
             print(liquidity_generated)
 
             if scifi_nota_price == 0:
-                stat_record = dynamodb_get("1")["Item"]
+                stat_record = self.dynamodb_get("1")["Item"]
                 current_long_price = stat_record["current_price"]
                 price_24hr = stat_record["price_24hr_change"]
                 volume_24hr = stat_record["volume_24hr"]
@@ -108,7 +108,7 @@ class StatsJob(Task):
             else:
                 current_long_price = format(float(scifi_nota_price), '.15f')
         else:
-            stat_record = dynamodb_get("1")["Item"]
+            stat_record = self.dynamodb_get("1")["Item"]
             current_long_price = stat_record["current_price"]
             price_24hr = stat_record["price_24hr_change"]
             volume_24hr = stat_record["volume_24hr"]
