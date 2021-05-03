@@ -11,6 +11,9 @@ from datetime import datetime, timezone
 from bs4 import BeautifulSoup
 import cloudscraper
 from requests_html import HTMLSession
+from requests_html import HTML
+import re
+import time
 
 
 class StatsJob(Task):
@@ -59,64 +62,99 @@ class StatsJob(Task):
         # print(format(float(market_cap_usd / total_supply), '.25f'))
 
         dex_guru_url = "https://api.dex.guru/v1/tokens/0x6b51231c43b1604815313801db5e9e614914d6e4-bsc"
-        bogcharts_url = "https://charts.bogged.finance/?token=0x6b51231c43B1604815313801dB5E9E614914d6e4"
 
-        session = HTMLSession(
-            browser_args=[
-                '--no-sandbox',
-                '--single-process',
-                '--disable-dev-shm-usage',
-                '--disable-gpu',
-                '--no-zygote'
-            ]
-        )
+        to_time = int(time.time())
+        from_time = to_time - 600
 
-        r = session.get(bogcharts_url)
+        price_dex_guru_url = f"https://api.dex.guru/v1/tradingview/history?symbol=0x6b51231c43b1604815313801db5e9e614914d6e4_USD&resolution=1&from={from_time}&to={to_time}"
+        # bogcharts_url = "https://charts.bogged.finance/?token=0x6b51231c43B1604815313801dB5E9E614914d6e4"
 
-        bogged_status_code = r.status_code
+        # session = HTMLSession(
+        #     browser_args=[
+        #         '--no-sandbox',
+        #         '--single-process',
+        #         '--disable-dev-shm-usage',
+        #         '--disable-gpu',
+        #         '--no-zygote'
+        #     ]
+        # )
 
-        # bogged_call_success = False
-        if bogged_status_code == 200:
-            # bogged_call_success = True
+        # scraper = cloudscraper.create_scraper(
+        #     delay=10,
+        # )
+        # response = scraper.get(bogcharts_url)
+        # print(response.text)
 
-            r.html.render(sleep=15, keep_page=True)
+        # bogged_status_code = response.status_code
+        # print("bogged charts status_code")
+        # print(bogged_status_code)
 
-            html_content = r.html.html
+        # # bogged_call_success = False
+        # if bogged_status_code == 200:
+        #     # bogged_call_success = True
 
-            soup = BeautifulSoup(html_content, "html.parser")
+        #     script_soup = BeautifulSoup(response.text, "html.parser")
+        #     scripts = script_soup.find_all("script", {"src": True})
 
-            print(soup.find_all("h4"))
+        #     js_to_load = ""
+        #     for script in scripts:
+        #         if "app." in script["src"]:
+        #             print(script["src"])
+        #             js_to_load = f"https://charts.bogged.finance/{script['src']}"
+        #             break
 
-            scifi_nota_price = float(soup.find_all("h4")[1].text.split("$")[-1])
-            price_24hr = float(soup.find_all("h4")[2].text.split("%")[0])
-            volume_24hr = float(soup.find_all("h4")[3].text.split("$")[-1].replace(",", ""))
-            liquidity_generated = float(soup.find_all("h4")[4].text.split("$")[-1].replace(",", ""))
+        #     r = session.get(js_to_load)
+        #     print(r.status_code)
+        #     # print(r.html.html)
+        #     script = r.html.html
+        #     html = HTML(html="<html><head></head><body></body></html>")
+        #     html.render(script=script, sleep=10, keep_page=True)
+        #     html_content = html.html
 
-            print("bogged charts price")
-            print(scifi_nota_price)
-            print(price_24hr)
-            print(volume_24hr)
-            print(liquidity_generated)
+        #     print(html_content)
 
-            if scifi_nota_price == 0:
-                stat_record = self.dynamodb_get(1)["Item"]
-                print(stat_record)
-                current_long_price = stat_record["current_price"]
-                price_24hr = stat_record["price_24hr_change"]
-                volume_24hr = stat_record["volume_24hr"]
-                liquidity_generated = stat_record["liquidity_generated"]
+        #     soup = BeautifulSoup(html_content, "html.parser")
 
-            else:
-                current_long_price = format(float(scifi_nota_price), '.15f')
-        else:
-            stat_record = self.dynamodb_get(1)["Item"]
-            print(stat_record)
-            current_long_price = stat_record["current_price"]
-            price_24hr = stat_record["price_24hr_change"]
-            volume_24hr = stat_record["volume_24hr"]
-            liquidity_generated = stat_record["liquidity_generated"]
+        #     print(soup.find_all("h4"))
+
+        #     scifi_nota_price = float(soup.find_all("h4")[1].text.split("$")[-1])
+        #     price_24hr = float(soup.find_all("h4")[2].text.split("%")[0])
+        #     volume_24hr = float(soup.find_all("h4")[3].text.split("$")[-1].replace(",", ""))
+        #     liquidity_generated = float(soup.find_all("h4")[4].text.split("$")[-1].replace(",", ""))
+
+        #     print("bogged charts price")
+        #     print(scifi_nota_price)
+        #     print(price_24hr)
+        #     print(volume_24hr)
+        #     print(liquidity_generated)
+
+        #     if scifi_nota_price == 0:
+        #         stat_record = self.dynamodb_get(1)["Item"]
+        #         print(stat_record)
+        #         current_long_price = stat_record["current_price"]
+        #         price_24hr = stat_record["price_24hr_change"]
+        #         volume_24hr = stat_record["volume_24hr"]
+        #         liquidity_generated = stat_record["liquidity_generated"]
+
+        #     else:
+        #         current_long_price = format(float(scifi_nota_price), '.15f')
+        # else:
+        #     stat_record = self.dynamodb_get(1)["Item"]
+        #     print(stat_record)
+        #     current_long_price = stat_record["current_price"]
+        #     price_24hr = stat_record["price_24hr_change"]
+        #     volume_24hr = stat_record["volume_24hr"]
+        #     liquidity_generated = stat_record["liquidity_generated"]
 
         scraper = cloudscraper.create_scraper()
+        price_response = scraper.get(price_dex_guru_url, timeout=2)
+
+        status_code = price_response.status_code
+        print(status_code)
+
+        if status_code != 200:
+            return f"Error with Dex Guru API code: {status_code}"
+
         response = scraper.get(dex_guru_url, timeout=2)
 
         status_code = response.status_code
@@ -126,18 +164,24 @@ class StatsJob(Task):
             return f"Error with Dex Guru API code: {status_code}"
 
         r_json = response.json()
+        price_r_json = price_response.json()
 
         print(r_json)
+        print(price_r_json)
+
+        current_long_price = format(float(price_r_json["c"][-1]), '.15f')
 
         volume_24hr_direction = "up"
         if float(r_json["volumeChange24h"]) < 0.0:
             volume_24hr_direction = "down"
 
         price_24hr_direction = "up"
-        if float(price_24hr) < 0.0:
+        if float(r_json["priceChange24h"]) < 0.0:
             price_24hr_direction = "down"
 
         holders_url = "https://bscscan.com/token/0x6b51231c43b1604815313801db5e9e614914d6e4"
+        bnb_liquidity_url = "https://bscscan.com/token/0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c?a=0x591d849595ba76ea4fa61c4f5c86c484d18abf43"
+        sg_liquidity_url = "https://bscscan.com/token/0x6b51231c43B1604815313801dB5E9E614914d6e4?a=0x591d849595ba76ea4fa61c4f5c86c484d18abf43"
 
         headers = {
             'Access-Control-Allow-Origin': '*',
@@ -147,24 +191,68 @@ class StatsJob(Task):
             'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0'
         }
 
-        req = requests.get(holders_url, headers)
+        # holders BSC
+        req1 = requests.get(holders_url, headers)
 
-        soup = BeautifulSoup(req.content, "html.parser")
+        soup1 = BeautifulSoup(req1.content, "html.parser")
 
-        body_tags = "".join([str(s) for s in soup.find_all('div', id=lambda x: x and x.endswith('tokenHolders'))])
+        body_tags1 = "".join([str(s) for s in soup1.find_all('div', id=lambda x: x and x.endswith('tokenHolders'))])
 
-        soup = BeautifulSoup(body_tags, "html.parser")
+        soup1 = BeautifulSoup(body_tags1, "html.parser")
+
+        # bnb liquidity BSC
+        req2 = requests.get(bnb_liquidity_url, headers)
+
+        soup2 = BeautifulSoup(req2.content, "html.parser")
+
+        body_tags2 = "".join([str(s) for s in soup2.find_all('div', id=lambda x: x and x.endswith('HolderValue'))])
+
+        soup2 = BeautifulSoup(body_tags2, "html.parser")
+
+        # print("bnb liquidity")
+        soup2.find("h6").decompose()
+        soup2.find("hr").decompose()
+        for span in soup2.find_all("span"):
+            span.decompose()
+        # print(soup2.text)
+        raw_bnb_liquidity_list = re.findall(r'\d+', soup2.text)
+
+        bnb_liquidity = float("".join(raw_bnb_liquidity_list[:-1]) + "." + raw_bnb_liquidity_list[-1])
+        # print(bnb_liquidity)
+        # print(float(soup2.find_all("h6")[0].text.split("$")[-1]))
+
+        # SG liquidity BSC
+        req3 = requests.get(sg_liquidity_url, headers)
+
+        soup3 = BeautifulSoup(req3.content, "html.parser")
+
+        body_tags3 = "".join([str(s) for s in soup3.find_all('div', id=lambda x: x and x.endswith('HolderValue'))])
+
+        soup3 = BeautifulSoup(body_tags3, "html.parser")
+
+        # print("SG liquidity")
+        soup3.find("h6").decompose()
+        soup3.find("hr").decompose()
+        for span in soup3.find_all("span"):
+            span.decompose()
+        # print(soup3.text)
+        raw_sg_liquidity_list = re.findall(r'\d+', soup3.text)
+
+        sg_liquidity = float("".join(raw_sg_liquidity_list[:-1]) + "." + raw_sg_liquidity_list[-1])
+        # print(sg_liquidity)
+
+        liquidity_generated = bnb_liquidity + sg_liquidity
 
         stats = {
-            "holders": soup.get_text().split()[1],
+            "holders": soup1.get_text().split()[1],
             "liquidity_generated": '{:,}'.format(round(liquidity_generated, 2)),
             "market_cap": cap_usd,
-            "volume_24hr": '{:,}'.format(round(volume_24hr, 2)),
+            "volume_24hr": '{:,}'.format(round(r_json["volume24hUSD"], 2)),
             "volume_24hr_change": str(abs(round(r_json["volumeChange24h"], 2))),
             "volume_24hr_direction": volume_24hr_direction,
             "tokens_burned": new_dead,
             "current_price": current_long_price,
-            "price_24hr_change": str(abs(round(price_24hr / 100, 2))),
+            "price_24hr_change": str(abs(round(r_json["priceChange24h"], 2))),
             "price_24hr_direction": price_24hr_direction,
             "timestamp_unix": int(datetime.now().timestamp()),
             "timestamp_utc": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S %Z"),
@@ -172,9 +260,9 @@ class StatsJob(Task):
 
         print(stats)
 
-        dynamo_response = self.dynamodb_update(1, stats)
+        # dynamo_response = self.dynamodb_update(1, stats)
 
-        print(dynamo_response)
+        # print(dynamo_response)
 
     def dynamodb_get(self, last_id):
         dynamodb = boto3.resource(
