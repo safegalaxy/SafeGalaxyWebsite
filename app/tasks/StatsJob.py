@@ -169,7 +169,12 @@ class StatsJob(Task):
         print(r_json)
         print(price_r_json)
 
-        current_long_price = format(float(price_r_json["c"][-1]), '.15f')
+        if not price_r_json["c"]:
+            stat_record = self.dynamodb_get(1)["Item"]
+            print(stat_record)
+            current_long_price = stat_record["current_price"]
+        else:
+            current_long_price = format(float(price_r_json["c"][-1]), '.15f')
 
         volume_24hr_direction = "up"
         if float(r_json["volumeChange24h"]) < 0.0:
