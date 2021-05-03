@@ -260,9 +260,9 @@ class StatsJob(Task):
 
         print(stats)
 
-        # dynamo_response = self.dynamodb_update(1, stats)
+        dynamo_response = self.dynamodb_update(1, stats)
 
-        # print(dynamo_response)
+        print(dynamo_response)
 
     def dynamodb_get(self, last_id):
         dynamodb = boto3.resource(
