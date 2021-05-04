@@ -115,10 +115,8 @@ a:focus {
 }
 
 .bottom-background {
-  background-image: url("/storage/static/images/SafeGalaxy-background-V1.jpg");
+  background-image: url("/storage/static/images/SafeGalaxy-background-V3.jpg");
   background-repeat: no-repeat;
-  /*background-attachment: fixed;*/
-  /*background-size: 100% 100%;*/
   background-size: cover;
   width: 100%;
   height: auto;
