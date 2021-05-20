@@ -108,8 +108,8 @@ a:focus {
   background-image: url("/storage/static/images/SafeGalaxy-background-V2.jpg");
   background-repeat: no-repeat;
   /*background-attachment: fixed;*/
-  /*background-size: 100% 100%;*/
-  background-size: cover;
+  background-size: 100% 100%;
+  /*background-size: cover;*/
   width: 100%;
   height: auto;
 }
@@ -488,17 +488,17 @@ a:focus {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: relative;
-  width: 235px;
+  width: 350px;
   height: 375px;
   margin: 20px auto 20px auto;
 }
 
 .profile-text {
   position: absolute;
-  bottom: 0;
+  bottom: 35px;
   left: 0;
   right: 0;
-  color: #000;
+  color: #fff;
   font-weight: 500;
   font-family: "Mosk";
   font-size: 18px;
